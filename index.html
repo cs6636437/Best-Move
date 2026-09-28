@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0d0b" />
+  <title>Best Move — Workout Checklist</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+    :root{--bg:#0a0d0b;--ink:#edf2ec;--muted:#89958d;--line:#29332d;--green:#c9ff3d;--dark:#141a16;--surface:#111713;--lav:#292438;--orange:#ff633d;--shadow:0 22px 64px #0008}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans','IBM Plex Sans Thai',sans-serif;-webkit-font-smoothing:antialiased}button{font:inherit;cursor:pointer}.shell{max-width:1200px;margin:auto;padding:0 44px}.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;letter-spacing:-.04em}.brand-mark{width:30px;height:30px;border-radius:50%;background:var(--green);display:grid;place-items:center}.brand-mark svg{width:20px}.top-right{display:flex;align-items:center;gap:25px;font-size:13px;color:var(--muted)}.date{color:var(--ink);font-weight:600}.profile{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--lav);font-size:13px;font-weight:700;color:#37334d}
+    main{padding:46px 0 72px}.intro{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:33px}.intro h1{font-size:clamp(34px,4.4vw,56px);line-height:1.12;letter-spacing:-.065em;margin:0 0 11px;font-weight:600}.intro p{color:var(--muted);margin:0;font-size:15px}.greeting{font-family:'IBM Plex Sans Thai',sans-serif}.day-count{display:flex;align-items:center;gap:10px;color:#57634f;font-size:13px;padding-bottom:5px}.day-count svg{color:#749c32}
+    .program-picker{margin-bottom:22px}.picker-heading{margin-bottom:13px}.program-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.program-option{min-height:71px;text-align:left;padding:13px 15px;border:1px solid var(--line);border-radius:15px;background:#fff;color:var(--ink);transition:background .18s,border-color .18s,transform .18s}.program-option:hover{transform:translateY(-2px);border-color:#a8c66b}.program-option[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#11150d}.program-name{display:block;font-size:14px;font-weight:700;letter-spacing:-.025em}.program-meta{display:block;color:var(--muted);font-size:11px;margin-top:5px}.program-option[aria-pressed="true"] .program-meta{color:#343d27}
+    [hidden]{display:none!important}.selection-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:21px 24px;background:var(--dark);border-radius:18px;color:#fff}.selection-footer>div{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.selection-caption{font-size:12px;color:#b9c7bb}.selection-footer strong{font-size:17px}.selection-count{font-size:12px;color:#c1cfc1}.primary-button{display:flex;align-items:center;justify-content:center;gap:12px;padding:13px 17px;border:0;border-radius:12px;background:var(--green);color:var(--dark);font-size:13px;font-weight:700;white-space:nowrap}.primary-button:hover{background:#d5fb83}.primary-button svg,.back-button svg{width:18px;height:18px}
+    .workout-page{max-width:900px;margin:0 auto}.back-button{display:inline-flex;align-items:center;gap:8px;border:0;background:none;color:#59645c;font-size:13px;font-weight:600;padding:7px 0;margin-bottom:18px}.back-button:hover{color:var(--ink)}.workout-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.workout-heading h1{font-size:clamp(30px,4vw,43px);line-height:1.12;letter-spacing:-.06em;margin:0 0 7px}.workout-heading p{font-family:'IBM Plex Sans Thai',sans-serif;color:var(--muted);font-size:13px;margin:0}.workout-count{padding:9px 13px;border-radius:99px;background:#e8eddf;color:#526047;font-size:12px;font-weight:600}.timer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;background:#e7e9e1;border-radius:18px;padding:17px 22px}.timer-copy .timer-head{display:block}.timer-copy .timer-head span{margin-left:8px}.timer-top .timer-caption{margin-top:6px}.timer-top .timer-main{gap:18px;margin:0}.timer-top .clock{font-size:30px}.routine{background:var(--surface);border:1px solid #eaede6;border-radius:22px;padding:25px 28px;box-shadow:var(--shadow)}.section-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:21px;border-bottom:1px solid var(--line)}.section-title{font-size:17px;font-weight:700;letter-spacing:-.03em}.section-sub{font-size:12px;color:var(--muted);margin-top:4px}.step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:14px;align-items:center;padding:15px 4px;border-bottom:1px solid #edf0e9;transition:opacity .2s,background .2s}.step:last-of-type{border-bottom:0}.step.active{background:#f7f9f2}.step.done .step-copy{opacity:.48}.step.done .step-name{text-decoration:line-through;text-decoration-color:#77836e}.check{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:#fafbf8;display:grid;place-items:center;color:transparent;transition:.2s}.step.active .check{border-color:#a8c66b;background:#fff;color:#a8c66b}.check:hover{border-color:#a8c66b;background:#f4f9e9}.check svg{width:19px;height:19px}.step.done .check{background:var(--green);border-color:var(--green);color:var(--dark)}.step.locked .check{cursor:pointer;color:#8a9387;background:#f3f4f0;border-color:transparent}.step.locked .check:hover{border-color:#b9c3b4;background:#eef1e9}.step-name{font-size:14px;font-weight:600;letter-spacing:-.02em}.step-status{font-size:11px;color:var(--muted);margin-top:4px}.step.locked .step-status{color:#929990}.bottom-row{display:flex;align-items:center;justify-content:space-between;padding-top:20px;margin-top:4px;border-top:1px solid var(--line)}.progress-copy{font-size:12px;color:var(--muted)}.progress-copy strong{color:var(--ink);font-size:13px}.progress-track{width:142px;height:5px;border-radius:9px;background:#edf0e9;overflow:hidden;margin-top:8px}.progress-fill{height:100%;width:0;background:#9ecb43;border-radius:9px;transition:width .35s}.reset{border:0;background:none;color:#858d85;font-size:12px;padding:8px 0}.reset:hover{color:var(--ink)}.completed-note{display:none;margin-top:12px;padding:11px 13px;background:var(--green);border-radius:12px;font-size:12px;color:var(--dark);font-weight:600}.completed-note.show{display:block}
+    .order-dialog{width:min(460px,calc(100% - 32px));border:1px solid #e8ebe3;border-radius:20px;padding:25px;background:#fff;color:var(--ink);box-shadow:0 28px 90px #0e1a1233}.order-dialog::backdrop{background:#101b15a6;backdrop-filter:blur(3px)}.dialog-mark{width:35px;height:35px;display:grid;place-items:center;border-radius:12px;background:var(--green);font-size:20px;font-weight:700}.order-dialog h2{font-size:21px;letter-spacing:-.04em;margin:17px 0 9px}.order-dialog p{font-family:'IBM Plex Sans Thai',sans-serif;font-size:13px;line-height:1.7;color:var(--muted);margin:0}.order-dialog p strong{color:var(--ink)}.dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:23px}.dialog-actions button{border:0;border-radius:11px;padding:11px 13px;font-size:12px;font-weight:600}.dialog-cancel{background:#f1f3ee;color:#566054}.dialog-confirm{background:var(--dark);color:#fff}.dialog-confirm:hover{background:#2b4034}
+    .layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(310px,.86fr);gap:22px;align-items:start}.routine{background:var(--surface);border:1px solid #eaede6;border-radius:22px;padding:25px 28px;box-shadow:var(--shadow)}.section-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:21px;border-bottom:1px solid var(--line)}.section-title{font-size:17px;font-weight:700;letter-spacing:-.03em}.section-sub{font-size:12px;color:var(--muted);margin-top:4px}.total-time{display:flex;align-items:center;gap:7px;color:#59645c;font-size:12px;background:#f3f5f0;border-radius:99px;padding:8px 11px}.total-time svg{width:14px;height:14px}.step{display:grid;grid-template-columns:46px minmax(0,1fr) auto;gap:14px;align-items:center;padding:18px 0;border-bottom:1px solid #edf0e9;transition:opacity .2s}.step:last-of-type{border-bottom:0}.step.done .step-copy{opacity:.48}.step.done .step-name{text-decoration:line-through;text-decoration-color:#77836e}.check{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:#fafbf8;display:grid;place-items:center;color:transparent;transition:.2s}.check:hover{border-color:#a8c66b;background:#f4f9e9}.check svg{width:19px;height:19px}.step.done .check{background:var(--green);border-color:var(--green);color:var(--dark)}.step-name{font-size:14px;font-weight:600;letter-spacing:-.02em}.step-note{font-size:12px;color:var(--muted);margin-top:4px}.step-duration{font-size:12px;color:#747d75;white-space:nowrap}.bottom-row{display:flex;align-items:center;justify-content:space-between;padding-top:20px;margin-top:4px;border-top:1px solid var(--line)}.progress-copy{font-size:12px;color:var(--muted)}.progress-copy strong{color:var(--ink);font-size:13px}.progress-track{width:142px;height:5px;border-radius:9px;background:#edf0e9;overflow:hidden;margin-top:8px}.progress-fill{height:100%;width:0;background:#9ecb43;border-radius:9px;transition:width .35s}.reset{border:0;background:none;color:#858d85;font-size:12px;padding:8px 0}.reset:hover{color:var(--ink)}
+    .side{display:flex;flex-direction:column;gap:17px}.hero-card{min-height:242px;position:relative;overflow:hidden;border-radius:22px;background:var(--dark);padding:24px;color:white}.hero-card:before{content:'';position:absolute;width:260px;height:260px;border-radius:50%;right:-57px;top:53px;background:var(--green)}.hero-card:after{content:'';position:absolute;width:183px;height:183px;border-radius:50%;right:30px;top:90px;background:#f2bb72;mix-blend-mode:multiply;opacity:.88}.sun{position:absolute;width:106px;height:106px;border-radius:50%;background:#f2bb72;right:60px;top:54px;z-index:1;box-shadow:0 0 0 15px #f2bb7220}.hill{position:absolute;z-index:2;width:340px;height:100px;right:-48px;bottom:-56px;border-radius:50% 50% 0 0;background:#778a5c;transform:rotate(-9deg)}.hero-label{position:relative;z-index:3;color:#b8c9b8;font-size:11px;letter-spacing:.11em;text-transform:uppercase}.hero-card h2{position:relative;z-index:3;font-size:25px;line-height:1.2;letter-spacing:-.06em;margin:14px 0 9px;max-width:175px}.hero-card p{position:relative;z-index:3;font-family:'IBM Plex Sans Thai',sans-serif;color:#c3cec5;font-size:12px;line-height:1.6;max-width:175px;margin:0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{border-radius:18px;background:#ebe9fb;padding:18px 19px;min-height:103px}.stat:nth-child(2){background:#e8eddf}.stat-label{font-size:11px;color:#686579}.stat-value{font-size:25px;font-weight:600;letter-spacing:-.055em;margin-top:10px}.stat-value span{font-size:12px;font-weight:500;letter-spacing:0;color:#72776b}.timer{border-radius:18px;background:#e7e9e1;padding:20px}.timer-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600}.timer-head span{font-size:11px;color:#71796e;font-weight:500}.timer-main{display:flex;align-items:center;justify-content:space-between;margin-top:15px}.clock{font-size:34px;letter-spacing:-.06em;font-variant-numeric:tabular-nums;font-weight:600}.timer-button{width:44px;height:44px;border:0;border-radius:50%;background:var(--dark);color:white;display:grid;place-items:center;transition:transform .15s}.timer-button:hover{transform:scale(1.05)}.timer-button svg{width:17px;height:17px}.timer-caption{font-size:11px;color:#747b72;margin-top:4px}.completed-note{display:none;margin-top:12px;padding:11px 13px;background:var(--green);border-radius:12px;font-size:12px;color:var(--dark);font-weight:600}.completed-note.show{display:block}
+    @media(max-width:1000px){.program-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:820px){.shell{padding:0 24px}.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.hero-card{grid-row:span 2}.intro{align-items:flex-start;gap:15px}.day-count{padding-top:9px;white-space:nowrap}}
+    @media(max-width:560px){.shell{padding:0 18px}.topbar{height:68px}.top-right{gap:13px}.top-right .date{font-size:11px}.brand{font-size:14px}.profile{width:31px;height:31px}main{padding:34px 0 46px}.intro{display:block;margin-bottom:23px}.intro h1{font-size:39px}.intro p{font-size:13px}.day-count{padding-top:16px}.program-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.program-option{min-height:65px;padding:11px 12px}.selection-footer{align-items:flex-start;flex-direction:column;padding:18px}.primary-button{width:100%}.workout-heading h1{font-size:34px}.timer-top{padding:15px 16px}.routine{padding:19px 17px;border-radius:18px}.section-title{font-size:15px}.step{grid-template-columns:40px minmax(0,1fr);gap:11px;padding:13px 0}.check{width:38px;height:38px;border-radius:12px}.step-name{font-size:13px}.bottom-row{gap:12px}.progress-track{width:115px}.dialog-actions{flex-direction:column-reverse}.dialog-actions button{width:100%}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+    /* Dark, high-energy workout theme */
+    body{background:var(--bg);color:var(--ink)}
+    .brand,.intro h1,.workout-heading h1,.section-title,.step-name,.order-dialog h2,.stat-value{font-family:'Space Grotesk','DM Sans',sans-serif}
+    .topbar{border-color:var(--line)}
+    .program-option{background:var(--surface);color:var(--ink);border-color:var(--line)}
+    .program-option:hover{border-color:var(--green)}
+    .program-option[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#10140e}
+    .program-option[aria-pressed="true"] .program-meta{color:#313b25}
+    .selection-footer{background:#151b17;border:1px solid var(--line);color:var(--ink)}
+    .selection-caption{color:#aab5ac}.selection-count{color:#aab5ac}
+    .primary-button{background:var(--green);color:#10140e}.primary-button:hover{background:#dcff77}
+    .workout-count{background:#1d281e;color:var(--green)}
+    .back-button{color:#a4afa6}
+    .timer-top,.timer{background:#151b17;border:1px solid #2d382f;border-left:3px solid var(--orange);color:var(--ink)}
+    .timer-top .clock{color:var(--green)}
+    .timer-head span,.timer-caption{color:#98a49a}
+    .timer-button{background:var(--orange);color:#1a100d}
+    .routine{background:var(--surface);border-color:var(--line)}
+    .section-head,.bottom-row{border-color:var(--line)}
+    .step{border-color:#252e28}.step.active{background:#171e15;border-left:3px solid var(--green)}
+    .step.active .check{background:var(--green);border-color:var(--green);color:#12160d}
+    .check{background:#151c17;border-color:#354139}.check:hover{background:#222d24;border-color:var(--green)}
+    .step.locked .check{background:#171d19;color:#96a294;border-color:#303a32}
+    .step.done .check{background:var(--green);border-color:var(--green);color:#10150b}
+    .progress-track{background:#2a332d}.progress-fill{background:var(--orange)}
+    .reset{color:#a1aca3}
+    .completed-note.show{background:#202b1a;color:var(--green);border:1px solid #516534}
+    .order-dialog{background:#111713;color:var(--ink);border-color:#344038}
+    .order-dialog p{color:var(--muted)}
+    .dialog-cancel{background:#222a25;color:var(--ink)}
+    .dialog-confirm{background:var(--green);color:#11150d}
+    /* Keep each screen balanced within the viewport. */
+    main{min-height:calc(100vh - 82px);display:flex;align-items:center;padding:48px 0}
+    .program-page{width:100%;max-width:1040px;margin:0 auto}
+    .program-grid{gap:14px}
+    .program-option{min-height:88px;padding:17px 19px;border-radius:17px}
+    .program-picker{margin:0}
+    .picker-heading{margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+    .picker-heading .section-title{font-size:19px}
+    .program-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .program-option{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:152px;padding:19px 20px;border-radius:18px;background:linear-gradient(145deg,#151c17,#0f1411);overflow:hidden}
+    .program-option:after{content:'';position:absolute;right:-27px;bottom:-54px;width:122px;height:122px;border:1px solid #ffffff0b;border-radius:50%;box-shadow:0 0 0 17px #ffffff06,0 0 0 35px #ffffff04;pointer-events:none}
+    .program-option:after{content:none}
+    .program-art{position:absolute;z-index:0;right:5px;bottom:4px;width:49%;height:88%;color:#758479;opacity:.75;pointer-events:none;transition:color .2s,opacity .2s,transform .25s}
+    .program-art svg{width:100%;height:100%;overflow:visible}
+    .program-art{display:flex;align-items:center;justify-content:center}
+    .program-art-image{display:block;flex:1;min-width:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center}
+    .program-art-upper{width:54%;right:2px;gap:0}
+    .program-art-upper .program-art-image{height:82%}
+    .program-art-upper .program-art-image+.program-art-image{margin-left:-5px}
+    .program-art-lower{width:43%;height:90%;right:9px}
+    .program-art-legs{width:39%;height:90%;right:11px}
+    .program-art-push{width:52%;height:88%;right:5px}
+    .program-art-pull{width:48%;height:91%;right:2px}
+    .program-art-fullbody{width:45%;height:92%;right:10px}
+    .program-option[aria-pressed="true"] .program-art{color:#34451f;opacity:.72}
+    .program-option:hover .program-art{opacity:.85;transform:translateY(-3px)}
+    .program-option[aria-pressed="true"]{background:linear-gradient(145deg,#c9ff3d,#a7df20);color:#10140e;box-shadow:0 12px 35px #b9f93821}
+    .program-option[aria-pressed="true"]:after{border-color:#18200d1c;box-shadow:0 0 0 17px #18200d0d,0 0 0 35px #18200d09}
+    .program-card-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+    .program-index{font:600 11px 'DM Sans',sans-serif;letter-spacing:.12em;color:#849188}
+    .program-mark{display:grid;place-items:center;width:25px;height:25px;border:1px solid #3a463e;border-radius:50%;color:transparent;font-size:14px;line-height:1}
+    .program-option[aria-pressed="true"] .program-index{color:#3e4b2b}
+    .program-option[aria-pressed="true"] .program-mark{background:#11180d;border-color:#11180d;color:var(--green)}
+    .program-name{position:relative;z-index:1;font-size:20px;letter-spacing:-.045em}
+    .program-meta{position:relative;z-index:1;color:#9aa59c;font-size:12px;margin-top:5px}
+    .program-option[aria-pressed="true"] .program-meta{color:#354227}
+    .intro{align-items:flex-end;margin-bottom:31px}
+    .intro h1{font-size:clamp(36px,4.5vw,54px);letter-spacing:-.075em;line-height:1.04;margin-bottom:13px}
+    .greeting-primary,.greeting-secondary{display:block}
+    .greeting-primary{margin-bottom:.28em}
+    .greeting #welcomeName{color:var(--green)}
+    .intro p{max-width:440px;font-size:15px;line-height:1.6}
+    .selection-footer{margin-top:19px;padding:19px 22px;border-radius:16px}
+    .primary-button{padding:14px 19px}
+    .brand-mark{border-radius:10px;background:#f2f4f1;color:#111713}
+    .brand-mark svg{width:23px;height:23px}
+    .selection-footer{margin-top:28px;padding:23px 27px}
+    .test-reset-row{display:flex;justify-content:center;margin-top:18px}
+    .test-reset-button{border:1px solid #343d37;border-radius:10px;background:#111713;color:#8e9b91;padding:9px 13px;font:600 11px 'DM Sans',sans-serif;letter-spacing:.02em;transition:border-color .18s,color .18s}
+    .test-reset-button:hover{border-color:#a45151;color:#edaaaa}
+    .reset-dialog{width:min(460px,calc(100% - 32px));border:1px solid #4b3939;border-radius:20px;padding:25px;background:#111713;color:var(--ink);box-shadow:0 28px 90px #000b}
+    .reset-dialog::backdrop{background:#050806d9;backdrop-filter:blur(5px)}
+    .reset-dialog h2{font:700 21px/1.2 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.04em;margin:17px 0 9px}
+    .reset-dialog p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
+    .reset-dialog .dialog-mark{background:#472424;color:#ffb1a6}
+    .reset-dialog .dialog-confirm{background:#a63c35;color:#fff}
+    .reset-dialog .dialog-confirm:hover{background:#c24d43}
+    .cheat-warning{margin:0 0 17px;padding:13px 16px;border:1px solid #754033;border-radius:12px;background:#301b17;color:#ffb49e;font-size:14px;font-weight:700;text-align:center;animation:cheat-pop .2s ease-out}
+    @keyframes cheat-pop{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+    .workout-page{width:100%;max-width:1040px}
+    .workout-heading{margin-bottom:24px}
+    .timer-top{margin-bottom:20px}
+    .routine{padding:29px 32px}
+    .step{padding-top:20px;padding-bottom:20px}
+    /* The current exercise is available, but only completed exercises turn green. */
+    .step.active .check{background:#151c17;border-color:var(--green);color:transparent}
+    .step.active .check:hover{background:#222d24}
+    .auth-screen{min-height:100vh;display:grid;place-items:center;padding:28px 18px;background:radial-gradient(ellipse at 50% 0%,#1c2918 0,transparent 48%),var(--bg)}.auth-card{width:min(100%,440px);padding:34px;border:1px solid var(--line);border-radius:24px;background:#111713;box-shadow:var(--shadow)}.auth-brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px}.auth-brand-mark{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#17200c}.auth-brand-mark svg{width:20px}.auth-card h1{font:600 34px/1.1 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.055em;margin:34px 0 8px}.auth-intro,.auth-privacy{font-size:13px;line-height:1.6;color:var(--muted)}.auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:4px;margin:25px 0 21px;background:#0a0d0b;border-radius:12px}.auth-tab{padding:10px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-size:13px;font-weight:600}.auth-tab[aria-selected="true"]{background:#263020;color:var(--green)}.auth-fields{display:grid;gap:14px}.auth-field{display:grid;gap:7px}.auth-field label{font-size:12px;font-weight:600;color:#c8d1c7}.auth-field input{width:100%;height:46px;padding:0 13px;border:1px solid #303a32;border-radius:11px;background:#0b100d;color:var(--ink);font:inherit;font-size:14px;outline:none}.auth-field input:focus{border-color:#94bd35;box-shadow:0 0 0 3px #c9ff3d20}.auth-submit{width:100%;margin-top:19px;min-height:47px;border:0;border-radius:12px;background:var(--green);color:#12170e;font-weight:700;font-size:14px}.auth-submit:hover{background:#d8ff74}.auth-message{min-height:20px;margin:12px 0 0;color:#ff927a;font-size:12px;line-height:1.5}.auth-privacy{margin:16px 0 0;font-size:11px}.auth-signout{border:0;background:transparent;color:var(--muted);font-size:12px;padding:8px 0}.auth-signout:hover{color:var(--ink)}
+    @media(max-width:820px){.program-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.program-option{min-height:132px}}
+    @media(max-width:560px){main{min-height:calc(100vh - 68px);align-items:flex-start;padding:34px 0 46px}.intro{margin-bottom:25px}.intro h1{font-size:36px;line-height:1.08}.intro p{font-size:13px;max-width:320px}.picker-heading{margin-bottom:13px;padding-bottom:13px}.picker-heading .section-title{font-size:17px}.program-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.program-option{min-height:116px;padding:13px;border-radius:15px}.program-name{font-size:16px}.program-meta{font-size:11px}.selection-footer{margin-top:15px;padding:16px}.routine{padding:19px 17px}.step{padding:13px 0}.auth-card{padding:27px 22px;border-radius:20px}.auth-card h1{font-size:31px;margin-top:29px}}
+  </style>
+  <style>
+    .step{padding-left:14px;padding-right:10px}
+    .step.active{border-left:3px solid var(--green)}
+    .step.active .check{margin-left:2px}
+    .bottom-row{justify-content:flex-start}
+    .timer-top .timer-main{display:flex;align-items:center;gap:10px}
+    .timer-adjust{width:36px;height:36px;border:1px solid #364238;border-radius:11px;background:#202923;color:var(--ink);font-size:21px;line-height:1;display:grid;place-items:center}
+    .timer-adjust:hover:not(:disabled){border-color:var(--green);color:var(--green)}
+    .timer-adjust:disabled{opacity:.4;cursor:not-allowed}
+    .timer-top .clock{min-width:82px;text-align:center}
+    .timer-top .timer-button{flex:none}
+    .timer-caption .timer-hint{color:#727f73;margin-left:6px}
+    .exercise-video{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:32px;padding:0 9px;border:1px solid #354138;border-radius:10px;background:#18201a;color:#b9c7bb;font-size:11px;font-weight:600;text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s,background .15s}
+    .exercise-video:hover{color:var(--green);border-color:#829d4d;background:#202a20}
+    .exercise-video svg{width:13px;height:13px}
+    .picker-heading{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .calendar-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 13px;border:1px solid #354138;border-radius:11px;background:#151c17;color:#d5dfd5;font-size:12px;font-weight:600;white-space:nowrap}
+    .calendar-link:hover{border-color:var(--green);color:var(--green)}
+    .calendar-link svg{width:16px;height:16px}
+    .picker-actions{display:flex;align-items:center;gap:8px}
+    .calendar-page{width:100%;max-width:1000px;margin:auto}
+    .calendar-page h1{font:600 clamp(34px,5vw,52px)/1.05 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.06em;margin:6px 0 8px}
+    .calendar-intro{color:var(--muted);font-size:14px;margin:0 0 24px}
+    .calendar-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(240px,.8fr);gap:16px;align-items:start}
+    .calendar-card,.calendar-detail{border:1px solid var(--line);border-radius:19px;background:var(--surface);padding:18px}
+    .calendar-toolbar{display:grid;grid-template-columns:40px 1fr 40px;align-items:center;gap:8px;margin-bottom:16px}
+    .calendar-month{font-size:16px;font-weight:700;text-align:center}
+    .calendar-nav{height:36px;border:1px solid #344037;border-radius:10px;background:#18201a;color:var(--ink);font-size:20px;line-height:1}
+    .calendar-nav:hover{border-color:var(--green);color:var(--green)}
+    .calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+    .calendar-weekday{padding:5px 0;color:#859187;text-align:center;font-size:10px;font-weight:600}
+    .calendar-day,.calendar-empty{min-width:0;aspect-ratio:1;border-radius:11px}
+    .calendar-day{position:relative;display:flex;align-items:center;justify-content:center;border:1px solid transparent;background:#141b16;color:#dbe3db;font-size:12px}
+    .calendar-day:hover{border-color:#728d47;background:#1b241b}
+    .calendar-day.today{border-color:#65794a}
+    .calendar-day.selected{background:var(--green);color:#11170d;font-weight:700}
+    .calendar-day.has-workout:after{content:'';position:absolute;bottom:5px;width:5px;height:5px;border-radius:50%;background:var(--orange)}
+    .calendar-day.selected.has-workout:after{background:#19220f}
+    .calendar-detail-kicker{color:#9caa9e;font-size:10px;font-weight:700;letter-spacing:.11em}
+    .calendar-detail h2{font:600 21px/1.2 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.035em;margin:9px 0 16px}
+    .calendar-workout-list{display:grid;gap:9px}
+    .calendar-workout{padding:11px 12px;border:1px solid #303b32;border-radius:12px;background:#151d17;font-size:13px;font-weight:600}
+    .calendar-workout-duration{margin-left:6px;color:var(--green);font-size:12px;font-weight:600;white-space:nowrap}
+    .calendar-workout-duration.missing{color:var(--muted);font-size:10px;font-weight:500}
+    .calendar-empty-note{color:var(--muted);font-size:12px;line-height:1.6;margin:0}
+    .bmi-page{width:100%;max-width:760px;margin:auto}
+    .bmi-page h1{font:600 clamp(34px,5vw,52px)/1.05 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.06em;margin:6px 0 8px}
+    .bmi-intro{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 24px}
+    .bmi-card{border:1px solid var(--line);border-radius:19px;background:var(--surface);padding:22px}
+    .bmi-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .bmi-field{display:grid;gap:8px}
+    .bmi-field label{font-size:12px;font-weight:600;color:#c8d1c7}
+    .bmi-field input{width:100%;height:48px;padding:0 13px;border:1px solid #303a32;border-radius:11px;background:#0b100d;color:var(--ink);font:600 16px 'DM Sans',sans-serif;outline:none}
+    .bmi-field input:focus{border-color:#94bd35;box-shadow:0 0 0 3px #c9ff3d20}
+    .bmi-submit{grid-column:1/-1;min-height:47px;border:0;border-radius:12px;background:var(--green);color:#12170e;font-size:14px;font-weight:700}
+    .bmi-submit:hover{background:#d8ff74}
+    .bmi-result{margin-top:18px;padding:18px;border:1px solid #3e5130;border-radius:15px;background:linear-gradient(135deg,#1a2416,#121814)}
+    .bmi-result-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .bmi-result-label{color:#aab6aa;font-size:11px;font-weight:700;letter-spacing:.1em}
+    .bmi-result-value{color:var(--green);font:700 38px/1 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.06em}
+    .bmi-result-category{margin-top:9px;font-size:15px;font-weight:700}
+    .bmi-result-hint{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
+    .bmi-section-title{margin:23px 0 11px;font:600 17px 'Space Grotesk','DM Sans',sans-serif}
+    .bmi-ranges{display:grid;gap:7px}
+    .bmi-range{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 13px;border:1px solid #303a32;border-radius:11px;background:#141b16;color:#c7d0c7;font-size:12px}
+    .bmi-range strong{font-variant-numeric:tabular-nums;color:#aeb9ad;white-space:nowrap}
+    .bmi-range.active{border-color:var(--green);background:#1d2916;color:#efffd1}
+    .bmi-range.active strong{color:var(--green)}
+    .bmi-note{margin:13px 0 0;color:#8d998f;font-size:11px;line-height:1.6}
+    .workout-heading-stats{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+    .workout-duration{display:flex;align-items:center;gap:9px;padding:7px 10px;border:1px solid #354138;border-radius:11px;background:#121814}
+    .workout-duration-label{font-size:9px;font-weight:700;letter-spacing:.1em;color:#9aa79a}
+    .workout-duration-clock{min-width:53px;text-align:right;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;color:#c5d0c5}
+    .workout-duration[data-state="running"] .workout-duration-label{color:var(--orange)}
+    .workout-duration[data-state="complete"] .workout-duration-label,.workout-duration[data-state="complete"] .workout-duration-clock{color:var(--green)}
+    .completion-dialog{width:min(420px,calc(100% - 36px));border:1px solid #4c5b43;border-radius:26px;padding:42px 30px;background:radial-gradient(ellipse at 50% 0%,#304422,#111713 75%);color:var(--ink);text-align:center;box-shadow:0 30px 100px #000b}
+    .completion-dialog::backdrop{background:#050806d9;backdrop-filter:blur(7px)}
+    .completion-mark{width:66px;height:66px;margin:0 auto 20px;border-radius:22px;display:grid;place-items:center;background:var(--green);color:#18200d;box-shadow:0 0 0 9px #c9ff3d18}
+    .completion-mark svg{width:31px;height:31px}
+    .completion-dialog h2{margin:0;font:700 clamp(38px,9vw,54px)/1 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.065em;color:var(--green)}
+    .completion-dialog p{margin:12px 0 0;color:#aab6aa;font-size:14px}
+    @media(max-width:820px){.calendar-layout{grid-template-columns:1fr}.calendar-detail{min-height:130px}}
+    @media(max-width:560px){.picker-actions{gap:5px}.calendar-link{min-height:36px;padding:0 9px;font-size:11px}.calendar-link svg{width:14px;height:14px}.bmi-card{padding:16px}.bmi-form{gap:10px}.bmi-field input{padding:0 10px}.bmi-range{padding:10px}}
+    @media(max-width:420px){.picker-heading{flex-wrap:wrap}.picker-actions{width:100%;justify-content:flex-end}.bmi-form{grid-template-columns:1fr}.bmi-submit{grid-column:auto}}
+    @media(max-width:560px){.timer-top{padding:14px 12px;gap:10px}.timer-top .timer-main{gap:6px}.timer-adjust{width:32px;height:34px}.timer-top .clock{min-width:69px;font-size:26px}.timer-top .timer-button{width:39px;height:39px}.timer-copy .timer-head span{display:block;margin:4px 0 0}.timer-caption .timer-hint{display:none}.step{grid-template-columns:38px minmax(0,1fr) auto;gap:8px;padding-left:12px;padding-right:6px}.exercise-video{min-height:30px;padding:0 7px;font-size:10px}.completion-dialog{padding:36px 22px}.picker-heading{align-items:flex-start}.calendar-link{min-height:36px;padding:0 9px;font-size:11px}.calendar-card,.calendar-detail{padding:13px}.calendar-grid{gap:3px}.calendar-day,.calendar-empty{border-radius:9px}.calendar-day.has-workout:after{bottom:3px}.workout-heading{align-items:flex-start;gap:12px}.workout-heading-stats{gap:6px}.workout-duration{gap:6px;padding:6px 7px}.workout-duration-label{font-size:8px}.workout-duration-clock{min-width:47px;font-size:12px}.workout-count{font-size:10px;padding:7px 9px}}
+  </style>
+</head>
+<body>
+  <section class="auth-screen" id="authPage" aria-labelledby="authTitle"><div class="auth-card">
+    <div class="auth-brand"><span class="auth-brand-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"/><path d="M8 27v-4.2c0-3.2 2.5-5.8 5.7-5.8h.6c3.2 0 5.7 2.6 5.7 5.8V27M9 19l-3-2.2a2.2 2.2 0 0 1-.5-3.1l1-1.4a2 2 0 0 1 3-.2l2.1 2m10.4 5.9 3-2.2a2.2 2.2 0 0 0 .5-3.1l-1-1.4a2 2 0 0 0-3-.2l-2.1 2M8 27h14"/></svg></span>Best Move</div>
+    <h1 id="authTitle">Welcome back.</h1><p class="auth-intro" id="authIntro">Sign in to continue your workout routine.</p>
+    <div class="auth-tabs" role="tablist" aria-label="Account access"><button class="auth-tab" id="signInTab" type="button" role="tab" aria-selected="true">Sign in</button><button class="auth-tab" id="signUpTab" type="button" role="tab" aria-selected="false">Create account</button></div>
+    <form id="authForm" novalidate><div class="auth-fields"><div class="auth-field" id="authNameField" hidden><label for="authName">Name</label><input id="authName" name="name" autocomplete="name" maxlength="50" placeholder="Your name" /></div><div class="auth-field"><label for="authEmail">Email</label><input id="authEmail" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com" /></div><div class="auth-field"><label for="authPassword">Password</label><input id="authPassword" name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="At least 8 characters" /></div></div><button class="auth-submit" id="authSubmit" type="submit">Sign in</button><p class="auth-message" id="authMessage" role="status" aria-live="polite"></p></form>
+    <p class="auth-privacy">Accounts are stored in this browser. Use this demo on this device only.</p>
+  </div></section>
+  <div class="shell" id="appShell" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 11a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"/><path d="M8 27v-4.2c0-3.2 2.5-5.8 5.7-5.8h.6c3.2 0 5.7 2.6 5.7 5.8V27M9 19l-3-2.2a2.2 2.2 0 0 1-.5-3.1l1-1.4a2 2 0 0 1 3-.2l2.1 2m10.4 5.9 3-2.2a2.2 2.2 0 0 0 .5-3.1l-1-1.4a2 2 0 0 0-3-.2l-2.1 2M8 27h14"/></svg></span>Best Move</div>
+      <div class="top-right"><span class="date" id="dateLabel"></span><button class="profile" id="profileButton" type="button" aria-label="Change display name">T</button><button class="auth-signout" id="signOutButton" type="button">Sign out</button></div>
+    </header>
+    <main>
+      <section class="program-page" id="programPage">
+        <section class="intro">
+          <div><h1 class="greeting"><span class="greeting-primary">Welcome back, <span id="welcomeName">there</span></span><span class="greeting-secondary">Let’s build your stronger self.</span></h1></div>
+        </section>
+        <section class="program-picker" aria-label="Choose a workout program">
+          <div class="picker-heading"><div><div class="section-title">Workout programs</div><div class="section-sub">Choose your training split</div></div><div class="picker-actions"><button class="calendar-link" id="openBMI" type="button" aria-label="BMI calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2m-8 3h2m4 0h2"/></svg>BMI</button><button class="calendar-link" id="openCalendar" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="m8 15 2 2 5-5"/></svg>Calendar</button></div></div>
+          <div class="program-grid" id="programGrid" role="group" aria-label="Workout programs"></div>
+        </section>
+        <section class="selection-footer"><div><span class="selection-caption">YOUR SELECTION</span><strong id="selectedProgramPreview">Upper body</strong><span class="selection-count" id="selectedCountPreview">10 exercises</span></div><button class="primary-button" id="beginWorkout">Start workout<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></section>
+        <div class="test-reset-row"><button class="test-reset-button" id="openResetDialog" type="button">Testing tool · Reset all workout data</button></div>
+      </section>
+
+      <section class="calendar-page" id="calendarPage" hidden aria-labelledby="calendarTitle">
+        <button class="back-button" id="calendarBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6M9 12h12"/></svg>Back to programs</button>
+        <h1 id="calendarTitle">Workout calendar</h1><p class="calendar-intro">See which programs you trained on each day.</p>
+        <div class="calendar-layout"><section class="calendar-card" aria-label="Workout calendar"><div class="calendar-toolbar"><button class="calendar-nav" id="previousMonth" type="button" aria-label="Previous month">‹</button><div class="calendar-month" id="calendarMonth"></div><button class="calendar-nav" id="nextMonth" type="button" aria-label="Next month">›</button></div><div class="calendar-grid" id="calendarGrid" role="grid" aria-label="Calendar dates"></div></section><aside class="calendar-detail" aria-live="polite"><div class="calendar-detail-kicker">SELECTED DAY</div><h2 id="calendarDateTitle"></h2><div class="calendar-workout-list" id="calendarWorkoutList"></div></aside></div>
+      </section>
+
+      <section class="bmi-page" id="bmiPage" hidden aria-labelledby="bmiTitle">
+        <button class="back-button" id="bmiBack" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6M9 12h12"/></svg>Back to programs</button>
+        <h1 id="bmiTitle">BMI calculator</h1>
+        <p class="bmi-intro">Calculate your body mass index and compare it with adult reference ranges.</p>
+        <section class="bmi-card" aria-label="BMI calculator and adult reference ranges">
+          <form class="bmi-form" id="bmiForm">
+            <div class="bmi-field"><label for="bmiWeight">Weight (kg)</label><input id="bmiWeight" name="weight" type="number" min="1" max="500" step="0.1" inputmode="decimal" placeholder="e.g. 70" required /></div>
+            <div class="bmi-field"><label for="bmiHeight">Height (cm)</label><input id="bmiHeight" name="height" type="number" min="50" max="260" step="0.1" inputmode="decimal" placeholder="e.g. 175" required /></div>
+            <button class="bmi-submit" type="submit">Calculate BMI</button>
+          </form>
+          <div class="bmi-result" id="bmiResult" aria-live="polite" hidden><div class="bmi-result-top"><span class="bmi-result-label">YOUR BMI</span><strong class="bmi-result-value" id="bmiValue"></strong></div><div class="bmi-result-category" id="bmiCategory"></div><p class="bmi-result-hint" id="bmiHint"></p></div>
+          <h2 class="bmi-section-title">Adult BMI ranges</h2>
+          <div class="bmi-ranges" id="bmiRanges"><div class="bmi-range" data-range="underweight"><span>Underweight</span><strong>Below 18.5</strong></div><div class="bmi-range" data-range="healthy"><span>Healthy weight</span><strong>18.5–24.9</strong></div><div class="bmi-range" data-range="overweight"><span>Overweight</span><strong>25.0–29.9</strong></div><div class="bmi-range" data-range="obesity"><span>Obesity</span><strong>30.0 and above</strong></div></div>
+          <p class="bmi-note">BMI is a screening measure for adults, not a diagnosis. Children and teens need age- and sex-specific ranges.</p>
+        </section>
+      </section>
+
+      <section class="workout-page" id="workoutPage" hidden>
+        <button class="back-button" id="backToPrograms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6M9 12h12"/></svg>Change program</button>
+        <section class="workout-heading"><div><h1 id="routineTitle">Upper body</h1><p id="workoutSubtitle">One exercise at a time</p></div><div class="workout-heading-stats"><div class="workout-count" id="exerciseCount">10 exercises</div><div class="workout-duration" id="workoutDuration" data-state="ready" aria-live="polite"><span class="workout-duration-label" id="workoutTimerLabel">READY</span><strong class="workout-duration-clock" id="workoutClock">00:00</strong></div></div></section>
+        <section class="timer timer-top" aria-label="Rest timer"><div class="timer-copy"><div class="timer-head">Rest timer <span>BETWEEN SETS</span></div><div class="timer-caption" id="timerCaption">Adjust in 5-second steps</div></div><div class="timer-main"><button class="timer-adjust" id="timerMinus" type="button" aria-label="Decrease timer by 5 seconds">−</button><div class="clock" id="clock" aria-live="polite">00:30</div><button class="timer-adjust" id="timerPlus" type="button" aria-label="Increase timer by 5 seconds">+</button><button class="timer-button" id="timerButton" aria-label="Start rest timer"><svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg><svg id="resetIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none" aria-hidden="true"><path d="M3 11a9 9 0 1 1 2.6 6.4"/><path d="M3 4v7h7"/></svg></button></div></section>
+        <section class="routine" aria-label="Exercise checklist">
+          <div class="section-head"><div><div class="section-title">Exercises</div><div class="section-sub">Finish the current exercise to unlock the next</div></div></div>
+          <div class="cheat-warning" id="cheatWarning" role="alert" aria-live="assertive" hidden>Don't cheat bro! 😡</div>
+          <div id="steps"></div>
+          <div class="bottom-row"><div class="progress-copy"><strong id="progressText">0 of 10 complete</strong><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div></div>
+        </section>
+      </section>
+    </main>
+    <dialog class="order-dialog" id="orderDialog" aria-labelledby="orderDialogTitle">
+      <div class="dialog-mark">↗</div><h2 id="orderDialogTitle">Play this exercise first?</h2>
+      <p><strong id="pendingExerciseName"></strong> is not next in your order. Confirm to move it to the front, then continue through the remaining exercises.</p>
+      <div class="dialog-actions"><button class="dialog-cancel" id="cancelReorder">Keep current order</button><button class="dialog-confirm" id="confirmReorder">Confirm and move it up</button></div>
+    </dialog>
+    <dialog class="completion-dialog" id="completionDialog" aria-labelledby="completionTitle"><div class="completion-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg></div><h2 id="completionTitle">Good Job!</h2><p>Workout complete.</p></dialog>
+    <dialog class="reset-dialog" id="resetDialog" aria-labelledby="resetDialogTitle"><div class="dialog-mark" aria-hidden="true">↺</div><h2 id="resetDialogTitle">Reset all workout data?</h2><p>This clears workout progress, exercise order, timer records, and calendar history from this browser. Your account and sign-in will stay intact.</p><div class="dialog-actions"><button class="dialog-cancel" id="cancelReset" type="button">Cancel</button><button class="dialog-confirm" id="confirmReset" type="button">Reset data</button></div></dialog>
+  </div>
+  <script>
+    const PROGRAMS = [
+      { id:'upper', title:'Upper body', exercises:['PEC DEC FLY','Smith machine incline bench press','Lat pulldown','Cable row','Shoulder press','Lateral raises','Tricep pushdown','Overhead tricep extension','Bicep curls','Hammer curls'] },
+      { id:'lower', title:'Lower body', exercises:['Squats','Leg press','Leg extension','Leg curl','Calf raises','ABS'] },
+      { id:'push', title:'Push', exercises:['PEC DEC FLY','Smith machine incline bench press','Shoulder press','Lateral raises','Tricep pushdown','Overhead tricep extension'] },
+      { id:'pull', title:'Pull', exercises:['Pull-up','Lat pulldown','Cable row','Dumbbell row','Rear delt fly','Bicep curls','Hammer curls'] },
+      { id:'legs', title:'Legs', exercises:['Squats','Leg press','Leg extension','Leg curl','Calf raises','ABS'] },
+      { id:'fullbody', title:'Fullbody', exercises:['Squats','PEC DEC FLY','Smith machine incline bench press','Lat pulldown','Cable row','Shoulder press','Lateral raises','Tricep pushdown','Overhead tricep extension','Bicep curls','Hammer curls'] }
+    ];
+    const today = new Date();
+    const getLocalDayKey = date => `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+    const dayKey = getLocalDayKey(today);
+    document.getElementById('dateLabel').textContent = new Intl.DateTimeFormat('en-US',{weekday:'long',day:'numeric',month:'long'}).format(today);
+    window.setInterval(() => { if (getLocalDayKey(new Date()) !== dayKey) window.location.reload(); }, 15000);
+    const selectedKey = `rise-move-program-v6-${dayKey}`;
+    const getSaved = key => { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch { return null; } };
+    const workoutHistoryKey = 'best-move-workout-history-v1';
+    const accountsKey = 'best-move-local-accounts-v1';
+    const sessionKey = 'best-move-local-session-v1';
+    const authPage = document.getElementById('authPage');
+    const appShell = document.getElementById('appShell');
+    const authNameField = document.getElementById('authNameField');
+    const authMessage = document.getElementById('authMessage');
+    let authMode = 'signin';
+    let currentUser = null;
+    const profileButton = document.getElementById('profileButton');
+    const welcomeName = document.getElementById('welcomeName');
+    const readAccounts = () => { const accounts=getSaved(accountsKey); return Array.isArray(accounts)?accounts:[]; };
+    const showAuthMessage = message => { authMessage.textContent=message; };
+    function setAuthMode(mode) {
+      authMode=mode;
+      const signingUp=mode==='signup';
+      document.getElementById('signInTab').setAttribute('aria-selected',String(!signingUp));
+      document.getElementById('signUpTab').setAttribute('aria-selected',String(signingUp));
+      document.getElementById('authTitle').textContent=signingUp?'Create your account':'Welcome back.';
+      document.getElementById('authIntro').textContent=signingUp?'Set up your Best Move profile to start training.':'Sign in to continue your workout routine.';
+      document.getElementById('authSubmit').textContent=signingUp?'Create account':'Sign in';
+      authNameField.hidden=!signingUp;
+      document.getElementById('authPassword').autocomplete=signingUp?'new-password':'current-password';
+      showAuthMessage('');
+    }
+    function showApp(user) {
+      currentUser=user;
+      welcomeName.textContent=user.name;
+      profileButton.textContent=Array.from(user.name)[0].toLocaleUpperCase();
+      profileButton.setAttribute('aria-label',`Change display name, currently ${user.name}`);
+      authPage.hidden=true;
+      appShell.hidden=false;
+    }
+    function randomSalt() { return btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(16)))); }
+    async function hashPassword(password,salt) {
+      const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);
+      const saltBytes=Uint8Array.from(atob(salt),char=>char.charCodeAt(0));
+      const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:saltBytes,iterations:210000,hash:'SHA-256'},key,256);
+      return btoa(String.fromCharCode(...new Uint8Array(bits)));
+    }
+    document.getElementById('signInTab').addEventListener('click',()=>setAuthMode('signin'));
+    document.getElementById('signUpTab').addEventListener('click',()=>setAuthMode('signup'));
+    document.getElementById('authForm').addEventListener('submit',async event=>{
+      event.preventDefault();
+      const name=document.getElementById('authName').value.trim();
+      const email=document.getElementById('authEmail').value.trim().toLowerCase();
+      const password=document.getElementById('authPassword').value;
+      if(authMode==='signup'&&!name){showAuthMessage('Enter your name to create an account.');return;}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showAuthMessage('Enter a valid email address.');return;}
+      if(password.length<8){showAuthMessage('Use a password with at least 8 characters.');return;}
+      const submit=document.getElementById('authSubmit');
+      submit.disabled=true;submit.textContent=authMode==='signup'?'Creating account…':'Signing in…';showAuthMessage('');
+      try {
+        const accounts=readAccounts();
+        const account=accounts.find(item=>item.email===email);
+        if(authMode==='signup'){
+          if(account){showAuthMessage('An account with this email already exists. Sign in instead.');return;}
+          const salt=randomSalt();
+          const newAccount={email,name,salt,passwordHash:await hashPassword(password,salt)};
+          accounts.push(newAccount);localStorage.setItem(accountsKey,JSON.stringify(accounts));
+          localStorage.setItem(sessionKey,JSON.stringify(email));showApp(newAccount);
+        } else {
+          if(!account||await hashPassword(password,account.salt)!==account.passwordHash){showAuthMessage('Email or password does not match.');return;}
+          localStorage.setItem(sessionKey,JSON.stringify(email));showApp(account);
+        }
+        document.getElementById('authPassword').value='';
+      } catch(error) {
+        showAuthMessage('Could not access local account storage in this browser.');
+      } finally {
+        submit.disabled=false;submit.textContent=authMode==='signup'?'Create account':'Sign in';
+      }
+    });
+    document.getElementById('signOutButton').addEventListener('click',()=>{localStorage.removeItem(sessionKey);currentUser=null;appShell.hidden=true;authPage.hidden=false;document.getElementById('authForm').reset();setAuthMode('signin');});
+    profileButton.addEventListener('click', () => {
+      if(!currentUser)return;
+      const enteredName = window.prompt('What should Best Move call you?', currentUser.name);
+      if (enteredName === null) return;
+      const name = enteredName.trim();
+      if (!name) return;
+      const accounts=readAccounts();
+      const account=accounts.find(item=>item.email===currentUser.email);
+      if(!account)return;
+      account.name=name;localStorage.setItem(accountsKey,JSON.stringify(accounts));showApp(account);
+    });
+    const savedEmail=getSaved(sessionKey);
+    const savedUser=readAccounts().find(item=>item.email===savedEmail);
+    if(savedUser)showApp(savedUser);else localStorage.removeItem(sessionKey);
+    let selectedId = getSaved(selectedKey) || 'upper';
+    const programGrid = document.getElementById('programGrid');
+    const stepsContainer = document.getElementById('steps');
+    const selectedProgram = () => PROGRAMS.find(program => program.id === selectedId) || PROGRAMS[0];
+    const programArt = {
+      upper:'<svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="90" cy="18" r="10"/><path d="M82 28v7m16-7v7M72 39c-9 1-16 5-22 11-5 6-7 15-10 24L27 98c-3 8 0 15 6 16 5 1 8-5 10-11l11-26 7-14-3 18 4 44c7 8 16 12 28 12s21-4 28-12l4-44-3-18 7 14 11 26c2 6 5 12 10 11 6-1 9-8 6-16l-13-24c-3-9-5-18-10-24-6-6-13-10-22-11l-10 5H82l-10-5Z" fill="currentColor" fill-opacity=".1"/><path d="M58 51c8 0 19 6 32 12 13-6 24-12 32-12M90 48v20m-29-2c4 8 13 12 29 13 16-1 25-5 29-13m-48 13c-4 9-3 17 1 23 5 4 11 6 18 6s13-2 18-6c4-6 5-14 1-23m-19-9v38m-17-19h14m6 0h14m-31 16c4 4 9 6 14 6s10-2 14-6M53 58l-15 28m89-28 15 28M41 99l8-19m90 19-8-19"/></svg>',
+      lower:'<svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M51 12c10 6 23 9 39 9s29-3 39-9l-2 19c-1 9-7 16-16 21l-11 7 8 16-6 14-12 7-12-7-6-14 8-16-11-7c-9-5-15-12-16-21l-2-19Z" fill="currentColor" fill-opacity=".12"/><path d="M53 25c11 5 23 7 37 7s26-2 37-7M77 62c-8 6-14 15-18 28l-7 25-3 22-9 10c-2 3 0 6 4 6h18c4 0 6-3 5-6l-1-12 8-23 10-18m16-32c8 6 14 15 18 28l7 25 3 22 9 10c2 3 0 6-4 6h-18c-4 0-6-3-5-6l1-12-8-23-10-18M76 70c-5 12-7 25-5 37 2 9 8 14 19 14s17-5 19-14c2-12 0-25-5-37m-29 42c5 4 10 6 15 6m29-6c-5 4-10 6-15 6m-20 18c5 3 10 4 15 4m20-4c-5 3-10 4-15 4"/></svg>',
+      push:'<svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="90" cy="17" r="10"/><path d="M83 27v7m14-7v7m-20 4c-9 1-15 5-20 11l-8 13-12 13c-4 5-2 11 2 14 4 2 8-1 11-5l14-14 7-8-3 20-8 22 3 32c7 7 15 10 27 10s20-3 27-10l3-32-8-22-3-20 7 8 14 14c3 4 7 7 11 5 4-3 6-9 2-14l-12-13-8-13c-5-6-11-10-20-11M63 53c8 1 17 7 27 12 10-5 19-11 27-12m-54 8c5 7 15 11 27 11s22-4 27-11M90 64v31m-19-16h14m10 0h14m-33 16c5 4 11 5 14 5s9-1 14-5M48 59l-11 12m95-12 11 12" fill="currentColor" fill-opacity=".1"/><path d="m38 72-12 8m116-8 12 8M26 80l-5 5m121-5 5 5m-5-12 7 7m-135 0 7-7M21 85l9 4m120-4-9 4M39 80l9 4m84-4-9 4m-53 30 5 25m30-25-5 25"/></svg>',
+      pull:'<svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15h156M19 8v14m142-14v14M47 15c1 3 3 5 7 5h5m69-5c-1 3-3 5-7 5h-5M61 54 51 41l-1-20m12 30L56 33l-3-12m66 33 10-13 1-20m-12 30 7-17 3-13"/><circle cx="90" cy="49" r="10"/><path d="M81 59c-9 2-15 6-20 13l-8 17c-3 7-3 16 1 22l4 29 32 8 32-8 4-29c4-6 4-15 1-22l-8-17c-5-7-11-11-20-13m-37 16c8-8 17-12 28-12s20 4 28 12m-50 7c7-4 14-6 22-6s15 2 22 6m-39 8c6-4 12-6 17-6s11 2 17 6m-34 11c6-3 11-4 17-4s11 1 17 4m-34 9c6-3 11-4 17-4s11 1 17 4m-34 8v20m34-20v20m-34 0-7 6m41-6 7 6" fill="currentColor" fill-opacity=".1"/></svg>',
+      legs:'<svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M57 8c9 7 19 10 33 10s24-3 33-10l-2 26c-1 8-5 15-11 20l-8 7 7 18-5 16-14 8-14-8-5-16 7-18-8-7c-6-5-10-12-11-20L57 8Z" fill="currentColor" fill-opacity=".12"/><path d="M59 25c9 5 19 7 31 7s22-2 31-7m-41 39c-8 9-12 19-13 31l-2 18-8 24-7 9 17 3 9-11 3-20 8-19 6-17m16-18c8 9 12 19 13 31l2 18 8 24 7 9-17 3-9-11-3-20-8-19-6-17M68 95c5 6 12 9 22 9s17-3 22-9m-40 12c5 4 11 6 18 6s13-2 18-6m-31 14-2 15m30-15 2 15M60 150h18m24 0h18"/></svg>',
+      fullbody:'<svg viewBox="0 0 180 160" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="90" cy="13" r="9"/><path d="M83 22v8m14-8v8m-18 2c-8 1-14 5-19 11l-9 16-13 20-9 19c-2 5 1 10 5 11 4 2 8-2 10-6l12-22 10-12-3 23-5 20 3 29 15 8 14-8 3-29-5-20-3-23 10 12 12 22c2 4 6 8 10 6 4-1 7-6 5-11l-9-19-13-20-9-16c-5-6-11-10-19-11M74 41c4 5 9 7 16 7s12-2 16-7m-42 4c7 0 15 4 26 9 11-5 19-9 26-9m-50 7-4 23 5 15c7 5 15 7 23 7s16-2 23-7l5-15-4-23M90 61v38m-22-27c6 4 14 6 22 6s16-2 22-6M70 83h16m8 0h16m-39 15c6 4 12 6 19 6s13-2 19-6m-29 28-2 19m24-19 2 19M58 79l-9 17m82-17 9 17m-77 55-10 3m72-3 10 3" fill="currentColor" fill-opacity=".1"/></svg>'
+    };
+    let programPhotoData = null;
+    fetch('program-assets/program-art.json')
+      .then(response => { if (!response.ok) throw new Error(`Artwork request failed: ${response.status}`); return response.json(); })
+      .then(art => { programPhotoData = art; renderPrograms(); })
+      .catch(error => console.warn('Could not load program artwork.', error));
+    const doneKey = () => `rise-move-done-v5-${dayKey}-${selectedId}`;
+    const orderKey = () => `rise-move-order-v2-${dayKey}-${selectedId}`;
+    const readDone = () => getSaved(doneKey()) || [];
+    function getWorkoutHistory() {
+      const history=Array.isArray(getSaved(workoutHistoryKey))?getSaved(workoutHistoryKey).filter(item=>item&&/^\d{4}-\d{2}-\d{2}$/.test(item.date)&&PROGRAMS.some(program=>program.id===item.programId)):[];
+      const seen=new Set(history.map(item=>`${item.date}:${item.programId}`));
+      for(let index=0;index<localStorage.length;index++){
+        const key=localStorage.key(index),match=key?.match(/^rise-move-done-v5-(\d{4}-\d{2}-\d{2})-([a-z]+)$/);
+        if(!match)continue;
+        const program=PROGRAMS.find(item=>item.id===match[2]),done=getSaved(key);
+        if(!program||!Array.isArray(done)||done.length===0)continue;
+        const id=`${match[1]}:${program.id}`;
+        if(!seen.has(id)){history.push({date:match[1],programId:program.id});seen.add(id);}
+      }
+      return history;
+    }
+    function recordWorkout(programId) {
+      const history=getWorkoutHistory();
+      if(history.some(item=>item.date===dayKey&&item.programId===programId))return;
+      history.push({date:dayKey,programId});
+      localStorage.setItem(workoutHistoryKey,JSON.stringify(history));
+    }
+    let calendarCursor=new Date(today.getFullYear(),today.getMonth(),1);
+    let selectedCalendarDay=dayKey;
+    function renderCalendar() {
+      const year=calendarCursor.getFullYear(),month=calendarCursor.getMonth();
+      document.getElementById('calendarMonth').textContent=new Intl.DateTimeFormat('en-US',{month:'long',year:'numeric'}).format(calendarCursor);
+      const historyByDay=new Map();
+      getWorkoutHistory().forEach(item=>{const entries=historyByDay.get(item.date)||[];if(!entries.includes(item.programId))entries.push(item.programId);historyByDay.set(item.date,entries);});
+      const grid=document.getElementById('calendarGrid');
+      const weekdays=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      const firstDay=new Date(year,month,1).getDay(),daysInMonth=new Date(year,month+1,0).getDate();
+      const cells=weekdays.map(day=>`<span class="calendar-weekday" role="columnheader">${day}</span>`);
+      for(let blank=0;blank<firstDay;blank++)cells.push('<span class="calendar-empty" aria-hidden="true"></span>');
+      for(let day=1;day<=daysInMonth;day++){
+        const dateKey=getLocalDayKey(new Date(year,month,day));
+        const workouts=historyByDay.get(dateKey)||[];
+        const labels=workouts.map(id=>PROGRAMS.find(program=>program.id===id)?.title).filter(Boolean);
+        const classes=['calendar-day',dateKey===dayKey?'today':'',dateKey===selectedCalendarDay?'selected':'',labels.length?'has-workout':''].filter(Boolean).join(' ');
+        const accessibleLabel=`${new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric'}).format(new Date(year,month,day))}${labels.length?`, ${labels.join(', ')}`:''}`;
+        cells.push(`<button class="${classes}" type="button" role="gridcell" data-date="${dateKey}" aria-label="${accessibleLabel}" aria-selected="${dateKey===selectedCalendarDay}">${day}</button>`);
+      }
+      grid.innerHTML=cells.join('');
+      grid.querySelectorAll('.calendar-day').forEach(button=>button.addEventListener('click',()=>{selectedCalendarDay=button.dataset.date;renderCalendar();}));
+      const chosen=new Date(`${selectedCalendarDay}T12:00:00`);
+      document.getElementById('calendarDateTitle').textContent=new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric'}).format(chosen);
+      const selectedWorkouts=historyByDay.get(selectedCalendarDay)||[];
+      const list=document.getElementById('calendarWorkoutList');
+      list.innerHTML=selectedWorkouts.length?selectedWorkouts.map(id=>{
+        const start=getSaved(`best-move-workout-start-v1-${selectedCalendarDay}-${id}`);
+        const finish=getSaved(`best-move-workout-finish-v1-${selectedCalendarDay}-${id}`);
+        let duration='No time saved',missing=true;
+        if(typeof start==='number'&&(typeof finish==='number'||selectedCalendarDay===dayKey)){
+          const seconds=Math.max(0,Math.floor(((typeof finish==='number'?finish:Date.now())-start)/1000));
+          const hours=Math.floor(seconds/3600),minutes=Math.floor(seconds%3600/60),remainder=seconds%60;
+          duration=hours?`${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(remainder).padStart(2,'0')}`:`${String(minutes).padStart(2,'0')}:${String(remainder).padStart(2,'0')}`;
+          missing=false;
+        } else if(typeof start==='number') duration='Not finished';
+        return `<div class="calendar-workout">${PROGRAMS.find(program=>program.id===id)?.title}<span class="calendar-workout-duration${missing?' missing':''}">· ${duration}</span></div>`;
+      }).join(''):'<p class="calendar-empty-note">No workout programs recorded for this day.</p>';
+    }
+    const readOrder = () => {
+      const saved = getSaved(orderKey());
+      const count = selectedProgram().exercises.length;
+      if (!Array.isArray(saved) || saved.length !== count || new Set(saved).size !== count || saved.some(index => !Number.isInteger(index) || index < 0 || index >= count)) return Array.from({length:count},(_,index)=>index);
+      return saved;
+    };
+    let checked = readDone();
+    let order = readOrder();
+    let pendingIndex = null;
+    let activeExerciseInterval=null;
+    let cheatWarningTimeout=null;
+    const orderDialog = document.getElementById('orderDialog');
+    const workoutStartKey = programId => `best-move-workout-start-v1-${dayKey}-${programId}`;
+    const workoutFinishKey = programId => `best-move-workout-finish-v1-${dayKey}-${programId}`;
+    let workoutTimerInterval=null;
+    let timerProgramId=null;
+    const exerciseStartKey = (programId,index) => `best-move-exercise-start-v1-${dayKey}-${programId}-${index}`;
+    function ensureExerciseStarted(index) {
+      if(typeof getSaved(workoutStartKey(selectedId))!=='number')return null;
+      const key=exerciseStartKey(selectedId,index);
+      let startedAt=getSaved(key);
+      if(typeof startedAt!=='number'){startedAt=Date.now();localStorage.setItem(key,JSON.stringify(startedAt));}
+      return startedAt;
+    }
+    function renderExerciseGate() {
+      const activeIndex=order.find(index=>!checked.includes(index));
+      if(activeIndex===undefined)return;
+      const status=stepsContainer.querySelector(`.step[data-exercise-row="${activeIndex}"] .step-status`);
+      if(!status)return;
+      const startedAt=ensureExerciseStarted(activeIndex);
+      if(startedAt===null){status.textContent='Up next · Start workout to begin';return;}
+      const remaining=Math.max(0,120-Math.floor((Date.now()-startedAt)/1000));
+      status.textContent=remaining?`Up next · Ready in ${String(Math.floor(remaining/60)).padStart(2,'0')}:${String(remaining%60).padStart(2,'0')}`:'Ready to complete';
+    }
+    function showCheatWarning() {
+      const warning=document.getElementById('cheatWarning');
+      warning.hidden=false;
+      if(cheatWarningTimeout)clearTimeout(cheatWarningTimeout);
+      cheatWarningTimeout=setTimeout(()=>{warning.hidden=true;cheatWarningTimeout=null;},2600);
+    }
+    function renderWorkoutClock() {
+      const programId=timerProgramId||selectedId;
+      const startedAt=getSaved(workoutStartKey(programId));
+      const finishedAt=getSaved(workoutFinishKey(programId));
+      let seconds=0;
+      if(typeof startedAt==='number')seconds=Math.max(0,Math.floor(((typeof finishedAt==='number'?finishedAt:Date.now())-startedAt)/1000));
+      const hours=Math.floor(seconds/3600),minutes=Math.floor(seconds%3600/60),remainder=seconds%60;
+      document.getElementById('workoutClock').textContent=hours?`${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(remainder).padStart(2,'0')}`:`${String(minutes).padStart(2,'0')}:${String(remainder).padStart(2,'0')}`;
+      const state=finishedAt?'complete':startedAt?'running':'ready';
+      document.getElementById('workoutDuration').dataset.state=state;
+      document.getElementById('workoutTimerLabel').textContent=state==='complete'?'COMPLETE':state==='running'?'WORKOUT TIME':'READY';
+    }
+    function startWorkoutClock() {
+      if(workoutTimerInterval){clearInterval(workoutTimerInterval);workoutTimerInterval=null;}
+      timerProgramId=selectedId;
+      const startKey=workoutStartKey(timerProgramId),finishKey=workoutFinishKey(timerProgramId);
+      let startedAt=getSaved(startKey),finishedAt=getSaved(finishKey);
+      if(typeof startedAt!=='number'){startedAt=Date.now();localStorage.setItem(startKey,JSON.stringify(startedAt));}
+      const activeExercise=order.find(index=>!checked.includes(index));
+      if(activeExercise!==undefined)ensureExerciseStarted(activeExercise);
+      if(checked.length===selectedProgram().exercises.length&&typeof finishedAt!=='number'){finishedAt=Date.now();localStorage.setItem(finishKey,JSON.stringify(finishedAt));}
+      if(typeof finishedAt!=='number')workoutTimerInterval=setInterval(renderWorkoutClock,1000);
+      renderWorkoutClock();
+    }
+    function finishWorkoutClock() {
+      const programId=timerProgramId||selectedId;
+      const startKey=workoutStartKey(programId),finishKey=workoutFinishKey(programId);
+      if(typeof getSaved(startKey)!=='number')localStorage.setItem(startKey,JSON.stringify(Date.now()));
+      if(typeof getSaved(finishKey)!=='number')localStorage.setItem(finishKey,JSON.stringify(Date.now()));
+      if(workoutTimerInterval){clearInterval(workoutTimerInterval);workoutTimerInterval=null;}
+      timerProgramId=programId;
+      renderWorkoutClock();
+    }
+
+    function renderPrograms() {
+      programGrid.innerHTML = PROGRAMS.map((program,index) => {
+        const art = programPhotoData?.[program.id];
+        const illustrationArt = programPhotoData && program.id === 'pull' ? [programPhotoData.upper[1]] : program.id === 'upper' && art?.length > 1 ? [art[0]] : art;
+        const illustration = illustrationArt ? illustrationArt.map(source => `<img class="program-art-image" src="data:image/webp;base64,${source}" alt="" />`).join('') : programArt[program.id];
+        return `<button class="program-option" type="button" data-program="${program.id}" aria-pressed="${program.id === selectedId}"><span class="program-art program-art-${program.id}" aria-hidden="true">${illustration}</span><span class="program-card-top"><span class="program-index">0${index + 1}</span></span><span><span class="program-name">${program.title}</span><span class="program-meta">${program.exercises.length} exercises</span></span></button>`;
+      }).join('');
+      programGrid.querySelectorAll('.program-option').forEach(button => button.addEventListener('click', () => {
+        selectedId = button.dataset.program;
+        localStorage.setItem(selectedKey, JSON.stringify(selectedId));
+        checked = readDone();
+        order = readOrder();
+        render();
+      }));
+    }
+
+    function render() {
+      const program = selectedProgram();
+      checked = checked.filter(index => index >= 0 && index < program.exercises.length);
+      document.getElementById('routineTitle').textContent = program.title;
+      document.getElementById('exerciseCount').textContent = `${program.exercises.length} exercises`;
+      document.getElementById('selectedProgramPreview').textContent = program.title;
+      document.getElementById('selectedCountPreview').textContent = `${program.exercises.length} exercises`;
+      document.getElementById('workoutSubtitle').textContent = `One exercise at a time · ${checked.length} of ${program.exercises.length} complete`;
+      const activeIndex = order.find(index => !checked.includes(index));
+      stepsContainer.innerHTML = order.map((index,position) => {
+        const exercise = program.exercises[index];
+        const done = checked.includes(index);
+        const active = !done && index === activeIndex;
+        const locked = !done && !active;
+        const icon = locked
+          ? '<path d="M7 10V7a5 5 0 0 1 10 0v3m-11 0h12v10H6z"/><path d="M12 14v2"/>'
+          : '<path d="m5 12 4 4L19 6"/>';
+        const status = done ? 'Completed' : active ? 'Up next' : 'Locked';
+        const videoUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(`${exercise} exercise proper form tutorial`)}`;
+        return `<div class="step${done ? ' done' : ''}${active ? ' active' : ''}${locked ? ' locked' : ''}" data-exercise-row="${index}"><button class="check" type="button" data-exercise="${index}" aria-label="${done ? 'Completed' : locked ? 'Confirm to play first' : 'Mark complete'} ${exercise}" aria-pressed="${done}" ${done ? 'disabled' : ''} ${locked ? 'aria-haspopup="dialog"' : ''}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon}</svg></button><div class="step-copy"><div class="step-name">${exercise}</div><div class="step-status">${status}${active ? ` · Exercise ${position + 1}` : ''}</div></div><a class="exercise-video" href="${videoUrl}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${exercise} video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg><span>Video</span></a></div>`;
+      }).join('');
+      stepsContainer.querySelectorAll('.check').forEach(button => button.addEventListener('click', () => {
+        const index = Number(button.dataset.exercise);
+        if (checked.includes(index)) return;
+        if (index === order.find(item => !checked.includes(item))) {
+          const startedAt=ensureExerciseStarted(index);
+          if(startedAt===null||Date.now()-startedAt<120000){showCheatWarning();return;}
+          checked = [...checked,index];
+          recordWorkout(program.id);
+          if (checked.length === program.exercises.length) { finishWorkoutClock(); showCompletion(); }
+        } else {
+          pendingIndex = index;
+          document.getElementById('pendingExerciseName').textContent = program.exercises[index];
+          orderDialog.showModal();
+          return;
+        }
+        render();
+      }));
+      document.getElementById('progressText').textContent = `${checked.length} of ${program.exercises.length} complete`;
+      document.getElementById('progressFill').style.width = `${checked.length / program.exercises.length * 100}%`;
+      localStorage.setItem(doneKey(),JSON.stringify(checked));
+      renderExerciseGate();
+      renderPrograms();
+    }
+    const completionDialog=document.getElementById('completionDialog');
+    let completionTimeout=null;
+    function showCompletion() {
+      if(completionTimeout)clearTimeout(completionTimeout);
+      completionDialog.showModal();
+      completionTimeout=setTimeout(()=>{if(completionDialog.open)completionDialog.close();completionTimeout=null;},3000);
+    }
+    document.getElementById('openCalendar').addEventListener('click',()=>{
+      document.getElementById('programPage').hidden=true;
+      document.getElementById('bmiPage').hidden=true;
+      document.getElementById('workoutPage').hidden=true;
+      document.getElementById('calendarPage').hidden=false;
+      calendarCursor=new Date(today.getFullYear(),today.getMonth(),1);
+      selectedCalendarDay=dayKey;
+      renderCalendar();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+    document.getElementById('openBMI').addEventListener('click',()=>{
+      document.getElementById('programPage').hidden=true;
+      document.getElementById('calendarPage').hidden=true;
+      document.getElementById('workoutPage').hidden=true;
+      document.getElementById('bmiPage').hidden=false;
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+    document.getElementById('bmiBack').addEventListener('click',()=>{
+      document.getElementById('bmiPage').hidden=true;
+      document.getElementById('programPage').hidden=false;
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+    document.getElementById('bmiForm').addEventListener('submit',event=>{
+      event.preventDefault();
+      const weight=Number(document.getElementById('bmiWeight').value);
+      const heightCm=Number(document.getElementById('bmiHeight').value);
+      if(!Number.isFinite(weight)||!Number.isFinite(heightCm)||weight<=0||heightCm<=0)return;
+      const bmi=weight/((heightCm/100)**2);
+      const category=bmi<18.5?'underweight':bmi<25?'healthy':bmi<30?'overweight':'obesity';
+      const labels={underweight:'Underweight',healthy:'Healthy weight',overweight:'Overweight',obesity:'Obesity'};
+      document.getElementById('bmiValue').textContent=bmi.toFixed(1);
+      document.getElementById('bmiCategory').textContent=labels[category];
+      document.getElementById('bmiHint').textContent='Compared with standard adult BMI reference ranges.';
+      document.querySelectorAll('.bmi-range').forEach(row=>row.classList.toggle('active',row.dataset.range===category));
+      document.getElementById('bmiResult').hidden=false;
+    });
+    document.getElementById('calendarBack').addEventListener('click',()=>{
+      document.getElementById('calendarPage').hidden=true;
+      document.getElementById('programPage').hidden=false;
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+    document.getElementById('previousMonth').addEventListener('click',()=>{calendarCursor=new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()-1,1);selectedCalendarDay=getLocalDayKey(calendarCursor);renderCalendar();});
+    document.getElementById('nextMonth').addEventListener('click',()=>{calendarCursor=new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()+1,1);selectedCalendarDay=getLocalDayKey(calendarCursor);renderCalendar();});
+    document.getElementById('beginWorkout').addEventListener('click',() => {
+      startWorkoutClock();
+      document.getElementById('programPage').hidden = true;
+      document.getElementById('workoutPage').hidden = false;
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+    document.getElementById('backToPrograms').addEventListener('click',() => {
+      document.getElementById('workoutPage').hidden = true;
+      document.getElementById('programPage').hidden = false;
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+    document.getElementById('cancelReorder').addEventListener('click',() => { pendingIndex=null; orderDialog.close(); });
+    document.getElementById('confirmReorder').addEventListener('click',() => {
+      if (pendingIndex !== null) {
+        order = [pendingIndex,...order.filter(index => index !== pendingIndex)];
+        localStorage.setItem(orderKey(),JSON.stringify(order));
+      }
+      pendingIndex=null;
+      orderDialog.close();
+      render();
+    });
+    render();
+    activeExerciseInterval=setInterval(renderExerciseGate,1000);
+
+    let remaining=30, selectedRestDuration=30, interval=null;
+    const clock=document.getElementById('clock'), timerButton=document.getElementById('timerButton');
+    const timerMinus=document.getElementById('timerMinus'),timerPlus=document.getElementById('timerPlus');
+    const paintClock=()=>clock.textContent=`${String(Math.floor(remaining/60)).padStart(2,'0')}:${String(remaining%60).padStart(2,'0')}`;
+    const showTimerIcon=name=>{for(const icon of ['playIcon','pauseIcon','resetIcon'])document.getElementById(icon).style.display=icon===name?'block':'none';};
+    const syncTimerButtons=()=>{timerMinus.disabled=selectedRestDuration<=5;timerPlus.disabled=selectedRestDuration>=600;};
+    const pauseTimer=()=>{if(interval){clearInterval(interval);interval=null;}showTimerIcon('playIcon');timerButton.setAttribute('aria-label','Start rest timer');};
+    const adjustTimer=amount=>{pauseTimer();const base=remaining===0?selectedRestDuration:remaining;selectedRestDuration=Math.max(5,Math.min(600,base+amount));remaining=selectedRestDuration;paintClock();syncTimerButtons();document.getElementById('timerCaption').textContent=`Adjust in 5-second steps · ${remaining} sec`;};
+    timerMinus.addEventListener('click',()=>adjustTimer(-5));
+    timerPlus.addEventListener('click',()=>adjustTimer(5));
+    syncTimerButtons();
+    timerButton.addEventListener('click',()=>{
+      if(interval){pauseTimer();document.getElementById('timerCaption').textContent=`Paused at ${clock.textContent}`;return;}
+      if(remaining===0)remaining=selectedRestDuration;
+      showTimerIcon('pauseIcon');timerButton.setAttribute('aria-label','Pause rest timer');document.getElementById('timerCaption').textContent='Resting';
+      syncTimerButtons();
+      interval=setInterval(()=>{remaining--;paintClock();syncTimerButtons();if(remaining<=0){pauseTimer();remaining=0;paintClock();syncTimerButtons();showTimerIcon('resetIcon');timerButton.setAttribute('aria-label',`Restart rest timer at ${Math.floor(selectedRestDuration/60)} minutes ${selectedRestDuration%60} seconds`);document.getElementById('timerCaption').textContent=`Time's up — tap to restart ${String(Math.floor(selectedRestDuration/60)).padStart(2,'0')}:${String(selectedRestDuration%60).padStart(2,'0')}`;}},1000);
+    });
+    const resetDialog=document.getElementById('resetDialog');
+    document.getElementById('openResetDialog').addEventListener('click',()=>resetDialog.showModal());
+    document.getElementById('cancelReset').addEventListener('click',()=>resetDialog.close());
+    document.getElementById('confirmReset').addEventListener('click',()=>{
+      resetDialog.close();
+      const resetPrefixes=['rise-move-program-v6-','rise-move-done-v5-','rise-move-order-v2-','best-move-workout-start-v1-','best-move-workout-finish-v1-','best-move-exercise-start-v1-'];
+      for(let index=localStorage.length-1;index>=0;index--){const key=localStorage.key(index);if(resetPrefixes.some(prefix=>key.startsWith(prefix)))localStorage.removeItem(key);}
+      localStorage.removeItem(workoutHistoryKey);
+      selectedId='upper';
+      localStorage.setItem(selectedKey,JSON.stringify(selectedId));
+      checked=readDone();
+      order=readOrder();
+      pendingIndex=null;
+      if(workoutTimerInterval){clearInterval(workoutTimerInterval);workoutTimerInterval=null;}
+      timerProgramId=null;
+      pauseTimer();
+      remaining=30;paintClock();syncTimerButtons();
+      document.getElementById('timerCaption').textContent='Adjust in 5-second steps';
+      renderWorkoutClock();
+      render();
+      renderCalendar();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
