@@ -6,23 +6,22 @@
   <meta name="theme-color" content="#0a0d0b" />
   <title>Best Move — Workout Checklist</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-    :root{--bg:#0a0d0b;--ink:#edf2ec;--muted:#89958d;--line:#29332d;--green:#c9ff3d;--dark:#141a16;--surface:#111713;--lav:#292438;--orange:#ff633d;--shadow:0 22px 64px #0008}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans','IBM Plex Sans Thai',sans-serif;-webkit-font-smoothing:antialiased}button{font:inherit;cursor:pointer}.shell{max-width:1200px;margin:auto;padding:0 44px}.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;letter-spacing:-.04em}.brand-mark{width:30px;height:30px;border-radius:50%;background:var(--green);display:grid;place-items:center}.brand-mark svg{width:20px}.top-right{display:flex;align-items:center;gap:25px;font-size:13px;color:var(--muted)}.date{color:var(--ink);font-weight:600}.profile{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--lav);font-size:13px;font-weight:700;color:#37334d}
-    main{padding:46px 0 72px}.intro{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:33px}.intro h1{font-size:clamp(34px,4.4vw,56px);line-height:1.12;letter-spacing:-.065em;margin:0 0 11px;font-weight:600}.intro p{color:var(--muted);margin:0;font-size:15px}.greeting{font-family:'IBM Plex Sans Thai',sans-serif}.day-count{display:flex;align-items:center;gap:10px;color:#57634f;font-size:13px;padding-bottom:5px}.day-count svg{color:#749c32}
+    :root{--apple-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,Arial,sans-serif;--bg:#0a0d0b;--ink:#edf2ec;--muted:#89958d;--line:#29332d;--green:#c9ff3d;--dark:#141a16;--surface:#111713;--lav:#292438;--orange:#ff633d;--shadow:0 22px 64px #0008}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--apple-font);-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{max-width:1200px;margin:auto;padding:0 44px}.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;letter-spacing:-.04em}.brand-mark{width:30px;height:30px;border-radius:50%;background:var(--green);display:grid;place-items:center}.brand-mark svg{width:20px}.top-right{display:flex;align-items:center;gap:25px;font-size:13px;color:var(--muted)}.date{color:var(--ink);font-weight:600}.profile{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--lav);font-size:13px;font-weight:700;color:#37334d}
+    main{padding:46px 0 72px}.intro{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:33px}.intro h1{font-size:clamp(34px,4.4vw,56px);line-height:1.12;letter-spacing:-.065em;margin:0 0 11px;font-weight:600}.intro p{color:var(--muted);margin:0;font-size:15px}.greeting{font-family:var(--apple-font)}.day-count{display:flex;align-items:center;gap:10px;color:#57634f;font-size:13px;padding-bottom:5px}.day-count svg{color:#749c32}
     .program-picker{margin-bottom:22px}.picker-heading{margin-bottom:13px}.program-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.program-option{min-height:71px;text-align:left;padding:13px 15px;border:1px solid var(--line);border-radius:15px;background:#fff;color:var(--ink);transition:background .18s,border-color .18s,transform .18s}.program-option:hover{transform:translateY(-2px);border-color:#a8c66b}.program-option[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#11150d}.program-name{display:block;font-size:14px;font-weight:700;letter-spacing:-.025em}.program-meta{display:block;color:var(--muted);font-size:11px;margin-top:5px}.program-option[aria-pressed="true"] .program-meta{color:#343d27}
     [hidden]{display:none!important}.selection-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:21px 24px;background:var(--dark);border-radius:18px;color:#fff}.selection-footer>div{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.selection-caption{font-size:12px;color:#b9c7bb}.selection-footer strong{font-size:17px}.selection-count{font-size:12px;color:#c1cfc1}.primary-button{display:flex;align-items:center;justify-content:center;gap:12px;padding:13px 17px;border:0;border-radius:12px;background:var(--green);color:var(--dark);font-size:13px;font-weight:700;white-space:nowrap}.primary-button:hover{background:#d5fb83}.primary-button svg,.back-button svg{width:18px;height:18px}
-    .workout-page{max-width:900px;margin:0 auto}.back-button{display:inline-flex;align-items:center;gap:8px;border:0;background:none;color:#59645c;font-size:13px;font-weight:600;padding:7px 0;margin-bottom:18px}.back-button:hover{color:var(--ink)}.workout-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.workout-heading h1{font-size:clamp(30px,4vw,43px);line-height:1.12;letter-spacing:-.06em;margin:0 0 7px}.workout-heading p{font-family:'IBM Plex Sans Thai',sans-serif;color:var(--muted);font-size:13px;margin:0}.workout-count{padding:9px 13px;border-radius:99px;background:#e8eddf;color:#526047;font-size:12px;font-weight:600}.timer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;background:#e7e9e1;border-radius:18px;padding:17px 22px}.timer-copy .timer-head{display:block}.timer-copy .timer-head span{margin-left:8px}.timer-top .timer-caption{margin-top:6px}.timer-top .timer-main{gap:18px;margin:0}.timer-top .clock{font-size:30px}.routine{background:var(--surface);border:1px solid #eaede6;border-radius:22px;padding:25px 28px;box-shadow:var(--shadow)}.section-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:21px;border-bottom:1px solid var(--line)}.section-title{font-size:17px;font-weight:700;letter-spacing:-.03em}.section-sub{font-size:12px;color:var(--muted);margin-top:4px}.step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:14px;align-items:center;padding:15px 4px;border-bottom:1px solid #edf0e9;transition:opacity .2s,background .2s}.step:last-of-type{border-bottom:0}.step.active{background:#f7f9f2}.step.done .step-copy{opacity:.48}.step.done .step-name{text-decoration:line-through;text-decoration-color:#77836e}.check{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:#fafbf8;display:grid;place-items:center;color:transparent;transition:.2s}.step.active .check{border-color:#a8c66b;background:#fff;color:#a8c66b}.check:hover{border-color:#a8c66b;background:#f4f9e9}.check svg{width:19px;height:19px}.step.done .check{background:var(--green);border-color:var(--green);color:var(--dark)}.step.locked .check{cursor:pointer;color:#8a9387;background:#f3f4f0;border-color:transparent}.step.locked .check:hover{border-color:#b9c3b4;background:#eef1e9}.step-name{font-size:14px;font-weight:600;letter-spacing:-.02em}.step-status{font-size:11px;color:var(--muted);margin-top:4px}.step.locked .step-status{color:#929990}.bottom-row{display:flex;align-items:center;justify-content:space-between;padding-top:20px;margin-top:4px;border-top:1px solid var(--line)}.progress-copy{font-size:12px;color:var(--muted)}.progress-copy strong{color:var(--ink);font-size:13px}.progress-track{width:142px;height:5px;border-radius:9px;background:#edf0e9;overflow:hidden;margin-top:8px}.progress-fill{height:100%;width:0;background:#9ecb43;border-radius:9px;transition:width .35s}.reset{border:0;background:none;color:#858d85;font-size:12px;padding:8px 0}.reset:hover{color:var(--ink)}.completed-note{display:none;margin-top:12px;padding:11px 13px;background:var(--green);border-radius:12px;font-size:12px;color:var(--dark);font-weight:600}.completed-note.show{display:block}
-    .order-dialog{width:min(460px,calc(100% - 32px));border:1px solid #e8ebe3;border-radius:20px;padding:25px;background:#fff;color:var(--ink);box-shadow:0 28px 90px #0e1a1233}.order-dialog::backdrop{background:#101b15a6;backdrop-filter:blur(3px)}.dialog-mark{width:35px;height:35px;display:grid;place-items:center;border-radius:12px;background:var(--green);font-size:20px;font-weight:700}.order-dialog h2{font-size:21px;letter-spacing:-.04em;margin:17px 0 9px}.order-dialog p{font-family:'IBM Plex Sans Thai',sans-serif;font-size:13px;line-height:1.7;color:var(--muted);margin:0}.order-dialog p strong{color:var(--ink)}.dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:23px}.dialog-actions button{border:0;border-radius:11px;padding:11px 13px;font-size:12px;font-weight:600}.dialog-cancel{background:#f1f3ee;color:#566054}.dialog-confirm{background:var(--dark);color:#fff}.dialog-confirm:hover{background:#2b4034}
+    .workout-page{max-width:900px;margin:0 auto}.back-button{display:inline-flex;align-items:center;gap:8px;border:0;background:none;color:#59645c;font-size:13px;font-weight:600;padding:7px 0;margin-bottom:18px}.back-button:hover{color:var(--ink)}.workout-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.workout-heading h1{font-size:clamp(30px,4vw,43px);line-height:1.12;letter-spacing:-.06em;margin:0 0 7px}.workout-heading p{font-family:var(--apple-font);color:var(--muted);font-size:13px;margin:0}.workout-count{padding:9px 13px;border-radius:99px;background:#e8eddf;color:#526047;font-size:12px;font-weight:600}.timer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;background:#e7e9e1;border-radius:18px;padding:17px 22px}.timer-copy .timer-head{display:block}.timer-copy .timer-head span{margin-left:8px}.timer-top .timer-caption{margin-top:6px}.timer-top .timer-main{gap:18px;margin:0}.timer-top .clock{font-size:30px}.routine{background:var(--surface);border:1px solid #eaede6;border-radius:22px;padding:25px 28px;box-shadow:var(--shadow)}.section-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:21px;border-bottom:1px solid var(--line)}.section-title{font-size:17px;font-weight:700;letter-spacing:-.03em}.section-sub{font-size:12px;color:var(--muted);margin-top:4px}.step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:14px;align-items:center;padding:15px 4px;border-bottom:1px solid #edf0e9;transition:opacity .2s,background .2s}.step:last-of-type{border-bottom:0}.step.active{background:#f7f9f2}.step.done .step-copy{opacity:.48}.step.done .step-name{text-decoration:line-through;text-decoration-color:#77836e}.check{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:#fafbf8;display:grid;place-items:center;color:transparent;transition:.2s}.step.active .check{border-color:#a8c66b;background:#fff;color:#a8c66b}.check:hover{border-color:#a8c66b;background:#f4f9e9}.check svg{width:19px;height:19px}.step.done .check{background:var(--green);border-color:var(--green);color:var(--dark)}.step.locked .check{cursor:pointer;color:#8a9387;background:#f3f4f0;border-color:transparent}.step.locked .check:hover{border-color:#b9c3b4;background:#eef1e9}.step-name{font-size:14px;font-weight:600;letter-spacing:-.02em}.step-status{font-size:11px;color:var(--muted);margin-top:4px}.step.locked .step-status{color:#929990}.bottom-row{display:flex;align-items:center;justify-content:space-between;padding-top:20px;margin-top:4px;border-top:1px solid var(--line)}.progress-copy{font-size:12px;color:var(--muted)}.progress-copy strong{color:var(--ink);font-size:13px}.progress-track{width:142px;height:5px;border-radius:9px;background:#edf0e9;overflow:hidden;margin-top:8px}.progress-fill{height:100%;width:0;background:#9ecb43;border-radius:9px;transition:width .35s}.reset{border:0;background:none;color:#858d85;font-size:12px;padding:8px 0}.reset:hover{color:var(--ink)}.completed-note{display:none;margin-top:12px;padding:11px 13px;background:var(--green);border-radius:12px;font-size:12px;color:var(--dark);font-weight:600}.completed-note.show{display:block}
+    .order-dialog{width:min(460px,calc(100% - 32px));border:1px solid #e8ebe3;border-radius:20px;padding:25px;background:#fff;color:var(--ink);box-shadow:0 28px 90px #0e1a1233}.order-dialog::backdrop{background:#101b15a6;backdrop-filter:blur(3px)}.dialog-mark{width:35px;height:35px;display:grid;place-items:center;border-radius:12px;background:var(--green);font-size:20px;font-weight:700}.order-dialog h2{font-size:21px;letter-spacing:-.04em;margin:17px 0 9px}.order-dialog p{font-family:var(--apple-font);font-size:13px;line-height:1.7;color:var(--muted);margin:0}.order-dialog p strong{color:var(--ink)}.dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:23px}.dialog-actions button{border:0;border-radius:11px;padding:11px 13px;font-size:12px;font-weight:600}.dialog-cancel{background:#f1f3ee;color:#566054}.dialog-confirm{background:var(--dark);color:#fff}.dialog-confirm:hover{background:#2b4034}
     .layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(310px,.86fr);gap:22px;align-items:start}.routine{background:var(--surface);border:1px solid #eaede6;border-radius:22px;padding:25px 28px;box-shadow:var(--shadow)}.section-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:21px;border-bottom:1px solid var(--line)}.section-title{font-size:17px;font-weight:700;letter-spacing:-.03em}.section-sub{font-size:12px;color:var(--muted);margin-top:4px}.total-time{display:flex;align-items:center;gap:7px;color:#59645c;font-size:12px;background:#f3f5f0;border-radius:99px;padding:8px 11px}.total-time svg{width:14px;height:14px}.step{display:grid;grid-template-columns:46px minmax(0,1fr) auto;gap:14px;align-items:center;padding:18px 0;border-bottom:1px solid #edf0e9;transition:opacity .2s}.step:last-of-type{border-bottom:0}.step.done .step-copy{opacity:.48}.step.done .step-name{text-decoration:line-through;text-decoration-color:#77836e}.check{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:#fafbf8;display:grid;place-items:center;color:transparent;transition:.2s}.check:hover{border-color:#a8c66b;background:#f4f9e9}.check svg{width:19px;height:19px}.step.done .check{background:var(--green);border-color:var(--green);color:var(--dark)}.step-name{font-size:14px;font-weight:600;letter-spacing:-.02em}.step-note{font-size:12px;color:var(--muted);margin-top:4px}.step-duration{font-size:12px;color:#747d75;white-space:nowrap}.bottom-row{display:flex;align-items:center;justify-content:space-between;padding-top:20px;margin-top:4px;border-top:1px solid var(--line)}.progress-copy{font-size:12px;color:var(--muted)}.progress-copy strong{color:var(--ink);font-size:13px}.progress-track{width:142px;height:5px;border-radius:9px;background:#edf0e9;overflow:hidden;margin-top:8px}.progress-fill{height:100%;width:0;background:#9ecb43;border-radius:9px;transition:width .35s}.reset{border:0;background:none;color:#858d85;font-size:12px;padding:8px 0}.reset:hover{color:var(--ink)}
-    .side{display:flex;flex-direction:column;gap:17px}.hero-card{min-height:242px;position:relative;overflow:hidden;border-radius:22px;background:var(--dark);padding:24px;color:white}.hero-card:before{content:'';position:absolute;width:260px;height:260px;border-radius:50%;right:-57px;top:53px;background:var(--green)}.hero-card:after{content:'';position:absolute;width:183px;height:183px;border-radius:50%;right:30px;top:90px;background:#f2bb72;mix-blend-mode:multiply;opacity:.88}.sun{position:absolute;width:106px;height:106px;border-radius:50%;background:#f2bb72;right:60px;top:54px;z-index:1;box-shadow:0 0 0 15px #f2bb7220}.hill{position:absolute;z-index:2;width:340px;height:100px;right:-48px;bottom:-56px;border-radius:50% 50% 0 0;background:#778a5c;transform:rotate(-9deg)}.hero-label{position:relative;z-index:3;color:#b8c9b8;font-size:11px;letter-spacing:.11em;text-transform:uppercase}.hero-card h2{position:relative;z-index:3;font-size:25px;line-height:1.2;letter-spacing:-.06em;margin:14px 0 9px;max-width:175px}.hero-card p{position:relative;z-index:3;font-family:'IBM Plex Sans Thai',sans-serif;color:#c3cec5;font-size:12px;line-height:1.6;max-width:175px;margin:0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{border-radius:18px;background:#ebe9fb;padding:18px 19px;min-height:103px}.stat:nth-child(2){background:#e8eddf}.stat-label{font-size:11px;color:#686579}.stat-value{font-size:25px;font-weight:600;letter-spacing:-.055em;margin-top:10px}.stat-value span{font-size:12px;font-weight:500;letter-spacing:0;color:#72776b}.timer{border-radius:18px;background:#e7e9e1;padding:20px}.timer-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600}.timer-head span{font-size:11px;color:#71796e;font-weight:500}.timer-main{display:flex;align-items:center;justify-content:space-between;margin-top:15px}.clock{font-size:34px;letter-spacing:-.06em;font-variant-numeric:tabular-nums;font-weight:600}.timer-button{width:44px;height:44px;border:0;border-radius:50%;background:var(--dark);color:white;display:grid;place-items:center;transition:transform .15s}.timer-button:hover{transform:scale(1.05)}.timer-button svg{width:17px;height:17px}.timer-caption{font-size:11px;color:#747b72;margin-top:4px}.completed-note{display:none;margin-top:12px;padding:11px 13px;background:var(--green);border-radius:12px;font-size:12px;color:var(--dark);font-weight:600}.completed-note.show{display:block}
+    .side{display:flex;flex-direction:column;gap:17px}.hero-card{min-height:242px;position:relative;overflow:hidden;border-radius:22px;background:var(--dark);padding:24px;color:white}.hero-card:before{content:'';position:absolute;width:260px;height:260px;border-radius:50%;right:-57px;top:53px;background:var(--green)}.hero-card:after{content:'';position:absolute;width:183px;height:183px;border-radius:50%;right:30px;top:90px;background:#f2bb72;mix-blend-mode:multiply;opacity:.88}.sun{position:absolute;width:106px;height:106px;border-radius:50%;background:#f2bb72;right:60px;top:54px;z-index:1;box-shadow:0 0 0 15px #f2bb7220}.hill{position:absolute;z-index:2;width:340px;height:100px;right:-48px;bottom:-56px;border-radius:50% 50% 0 0;background:#778a5c;transform:rotate(-9deg)}.hero-label{position:relative;z-index:3;color:#b8c9b8;font-size:11px;letter-spacing:.11em;text-transform:uppercase}.hero-card h2{position:relative;z-index:3;font-size:25px;line-height:1.2;letter-spacing:-.06em;margin:14px 0 9px;max-width:175px}.hero-card p{position:relative;z-index:3;font-family:var(--apple-font);color:#c3cec5;font-size:12px;line-height:1.6;max-width:175px;margin:0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{border-radius:18px;background:#ebe9fb;padding:18px 19px;min-height:103px}.stat:nth-child(2){background:#e8eddf}.stat-label{font-size:11px;color:#686579}.stat-value{font-size:25px;font-weight:600;letter-spacing:-.055em;margin-top:10px}.stat-value span{font-size:12px;font-weight:500;letter-spacing:0;color:#72776b}.timer{border-radius:18px;background:#e7e9e1;padding:20px}.timer-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600}.timer-head span{font-size:11px;color:#71796e;font-weight:500}.timer-main{display:flex;align-items:center;justify-content:space-between;margin-top:15px}.clock{font-size:34px;letter-spacing:-.06em;font-variant-numeric:tabular-nums;font-weight:600}.timer-button{width:44px;height:44px;border:0;border-radius:50%;background:var(--dark);color:white;display:grid;place-items:center;transition:transform .15s}.timer-button:hover{transform:scale(1.05)}.timer-button svg{width:17px;height:17px}.timer-caption{font-size:11px;color:#747b72;margin-top:4px}.completed-note{display:none;margin-top:12px;padding:11px 13px;background:var(--green);border-radius:12px;font-size:12px;color:var(--dark);font-weight:600}.completed-note.show{display:block}
     @media(max-width:1000px){.program-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:820px){.shell{padding:0 24px}.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.hero-card{grid-row:span 2}.intro{align-items:flex-start;gap:15px}.day-count{padding-top:9px;white-space:nowrap}}
     @media(max-width:560px){.shell{padding:0 18px}.topbar{height:68px}.top-right{gap:13px}.top-right .date{font-size:11px}.brand{font-size:14px}.profile{width:31px;height:31px}main{padding:34px 0 46px}.intro{display:block;margin-bottom:23px}.intro h1{font-size:39px}.intro p{font-size:13px}.day-count{padding-top:16px}.program-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.program-option{min-height:65px;padding:11px 12px}.selection-footer{align-items:flex-start;flex-direction:column;padding:18px}.primary-button{width:100%}.workout-heading h1{font-size:34px}.timer-top{padding:15px 16px}.routine{padding:19px 17px;border-radius:18px}.section-title{font-size:15px}.step{grid-template-columns:40px minmax(0,1fr);gap:11px;padding:13px 0}.check{width:38px;height:38px;border-radius:12px}.step-name{font-size:13px}.bottom-row{gap:12px}.progress-track{width:115px}.dialog-actions{flex-direction:column-reverse}.dialog-actions button{width:100%}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
     /* Dark, high-energy workout theme */
     body{background:var(--bg);color:var(--ink)}
-    .brand,.intro h1,.workout-heading h1,.section-title,.step-name,.order-dialog h2,.stat-value{font-family:'Space Grotesk','DM Sans',sans-serif}
+    .brand,.intro h1,.workout-heading h1,.section-title,.step-name,.order-dialog h2,.stat-value{font-family:var(--apple-font)}
     .topbar{border-color:var(--line)}
     .program-option{background:var(--surface);color:var(--ink);border-color:var(--line)}
     .program-option:hover{border-color:var(--green)}
@@ -80,7 +79,7 @@
     .program-option[aria-pressed="true"]{background:linear-gradient(145deg,#c9ff3d,#a7df20);color:#10140e;box-shadow:0 12px 35px #b9f93821}
     .program-option[aria-pressed="true"]:after{border-color:#18200d1c;box-shadow:0 0 0 17px #18200d0d,0 0 0 35px #18200d09}
     .program-card-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
-    .program-index{font:600 11px 'DM Sans',sans-serif;letter-spacing:.12em;color:#849188}
+    .program-index{font:600 11px var(--apple-font);letter-spacing:.12em;color:#849188}
     .program-mark{display:grid;place-items:center;width:25px;height:25px;border:1px solid #3a463e;border-radius:50%;color:transparent;font-size:14px;line-height:1}
     .program-option[aria-pressed="true"] .program-index{color:#3e4b2b}
     .program-option[aria-pressed="true"] .program-mark{background:#11180d;border-color:#11180d;color:var(--green)}
@@ -99,11 +98,11 @@
     .brand-mark svg{width:23px;height:23px}
     .selection-footer{margin-top:28px;padding:23px 27px}
     .test-reset-row{display:flex;justify-content:center;margin-top:18px}
-    .test-reset-button{border:1px solid #343d37;border-radius:10px;background:#111713;color:#8e9b91;padding:9px 13px;font:600 11px 'DM Sans',sans-serif;letter-spacing:.02em;transition:border-color .18s,color .18s}
+    .test-reset-button{border:1px solid #343d37;border-radius:10px;background:#111713;color:#8e9b91;padding:9px 13px;font:600 11px var(--apple-font);letter-spacing:.02em;transition:border-color .18s,color .18s}
     .test-reset-button:hover{border-color:#a45151;color:#edaaaa}
     .reset-dialog{width:min(460px,calc(100% - 32px));border:1px solid #4b3939;border-radius:20px;padding:25px;background:#111713;color:var(--ink);box-shadow:0 28px 90px #000b}
     .reset-dialog::backdrop{background:#050806d9;backdrop-filter:blur(5px)}
-    .reset-dialog h2{font:700 21px/1.2 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.04em;margin:17px 0 9px}
+    .reset-dialog h2{font:700 21px/1.2 var(--apple-font);letter-spacing:-.04em;margin:17px 0 9px}
     .reset-dialog p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
     .reset-dialog .dialog-mark{background:#472424;color:#ffb1a6}
     .reset-dialog .dialog-confirm{background:#a63c35;color:#fff}
@@ -118,8 +117,8 @@
     /* The current exercise is available, but only completed exercises turn green. */
     .step.active .check{background:#151c17;border-color:var(--green);color:transparent}
     .step.active .check:hover{background:#222d24}
-    .loading-screen{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse 42% 34% at 50% 46%,#1c2918 0,transparent 100%),var(--bg);opacity:1;visibility:visible;transition:opacity .3s ease,visibility .3s ease}.loading-screen.is-leaving{opacity:0;visibility:hidden;pointer-events:none}.loading-lockup{display:grid;justify-items:center;gap:16px}.loading-mark{width:92px;height:92px;display:grid;place-items:center;border-radius:27px;background:#f2f4f1;color:#111713;box-shadow:0 0 0 10px #f2f4f10a,0 18px 58px #0008;animation:loading-arrive .8s cubic-bezier(.2,.8,.2,1) both}.loading-mark svg{width:58px;height:58px}.loading-wordmark{font:700 20px/1 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.045em;color:var(--ink)}.loading-caption{margin-top:3px;color:#8d9b8f;font:600 10px/1 'DM Sans',sans-serif;letter-spacing:.16em}.loading-track{width:78px;height:3px;margin-top:4px;overflow:hidden;border-radius:9px;background:#28332a}.loading-track span{display:block;width:38%;height:100%;border-radius:inherit;background:var(--green);animation:loading-progress 1.05s ease-in-out infinite}@keyframes loading-arrive{from{opacity:0;transform:translateY(8px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes loading-progress{0%{transform:translateX(-110%)}100%{transform:translateX(290%)}}
-    .auth-screen{min-height:100vh;display:grid;place-items:center;padding:28px 18px;background:radial-gradient(ellipse at 50% 0%,#1c2918 0,transparent 48%),var(--bg)}.auth-card{width:min(100%,440px);padding:34px;border:1px solid var(--line);border-radius:24px;background:#111713;box-shadow:var(--shadow)}.auth-brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px}.auth-brand-mark{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#17200c}.auth-brand-mark svg{width:20px}.auth-card h1{font:600 34px/1.1 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.055em;margin:34px 0 8px}.auth-intro,.auth-privacy{font-size:13px;line-height:1.6;color:var(--muted)}.auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:4px;margin:25px 0 21px;background:#0a0d0b;border-radius:12px}.auth-tab{padding:10px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-size:13px;font-weight:600}.auth-tab[aria-selected="true"]{background:#263020;color:var(--green)}.auth-fields{display:grid;gap:14px}.auth-field{display:grid;gap:7px}.auth-field label{font-size:12px;font-weight:600;color:#c8d1c7}.auth-field input{width:100%;height:46px;padding:0 13px;border:1px solid #303a32;border-radius:11px;background:#0b100d;color:var(--ink);font:inherit;font-size:14px;outline:none}.auth-field input:focus{border-color:#94bd35;box-shadow:0 0 0 3px #c9ff3d20}.auth-submit{width:100%;margin-top:19px;min-height:47px;border:0;border-radius:12px;background:var(--green);color:#12170e;font-weight:700;font-size:14px}.auth-submit:hover{background:#d8ff74}.auth-message{min-height:20px;margin:12px 0 0;color:#ff927a;font-size:12px;line-height:1.5}.auth-privacy{margin:16px 0 0;font-size:11px}.auth-signout{border:0;background:transparent;color:var(--muted);font-size:12px;padding:8px 0}.auth-signout:hover{color:var(--ink)}
+    .loading-screen{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse 42% 34% at 50% 46%,#1c2918 0,transparent 100%),var(--bg);opacity:1;visibility:visible;transition:opacity .3s ease,visibility .3s ease}.loading-screen.is-leaving{opacity:0;visibility:hidden;pointer-events:none}.loading-lockup{display:grid;justify-items:center;gap:16px}.loading-mark{width:92px;height:92px;display:grid;place-items:center;border-radius:27px;background:#f2f4f1;color:#111713;box-shadow:0 0 0 10px #f2f4f10a,0 18px 58px #0008;animation:loading-arrive .8s cubic-bezier(.2,.8,.2,1) both}.loading-mark svg{width:58px;height:58px}.loading-wordmark{font:700 20px/1 var(--apple-font);letter-spacing:-.045em;color:var(--ink)}.loading-caption{margin-top:3px;color:#8d9b8f;font:600 10px/1 var(--apple-font);letter-spacing:.16em}.loading-track{width:78px;height:3px;margin-top:4px;overflow:hidden;border-radius:9px;background:#28332a}.loading-track span{display:block;width:38%;height:100%;border-radius:inherit;background:var(--green);animation:loading-progress 1.05s ease-in-out infinite}@keyframes loading-arrive{from{opacity:0;transform:translateY(8px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes loading-progress{0%{transform:translateX(-110%)}100%{transform:translateX(290%)}}
+    .auth-screen{min-height:100vh;display:grid;place-items:center;padding:28px 18px;background:radial-gradient(ellipse at 50% 0%,#1c2918 0,transparent 48%),var(--bg)}.auth-card{width:min(100%,440px);padding:34px;border:1px solid var(--line);border-radius:24px;background:#111713;box-shadow:var(--shadow)}.auth-brand{display:flex;align-items:center;gap:10px;font-family:var(--apple-font);font-weight:700;font-size:16px}.auth-brand-mark{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#17200c}.auth-brand-mark svg{width:20px}.auth-card h1{font:600 34px/1.1 var(--apple-font);letter-spacing:-.055em;margin:34px 0 8px}.auth-intro,.auth-privacy{font-size:13px;line-height:1.6;color:var(--muted)}.auth-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:4px;margin:25px 0 21px;background:#0a0d0b;border-radius:12px}.auth-tab{padding:10px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-size:13px;font-weight:600}.auth-tab[aria-selected="true"]{background:#263020;color:var(--green)}.auth-fields{display:grid;gap:14px}.auth-field{display:grid;gap:7px}.auth-field label{font-size:12px;font-weight:600;color:#c8d1c7}.auth-field input{width:100%;height:46px;padding:0 13px;border:1px solid #303a32;border-radius:11px;background:#0b100d;color:var(--ink);font:inherit;font-size:14px;outline:none}.auth-field input:focus{border-color:#94bd35;box-shadow:0 0 0 3px #c9ff3d20}.auth-submit{width:100%;margin-top:19px;min-height:47px;border:0;border-radius:12px;background:var(--green);color:#12170e;font-weight:700;font-size:14px}.auth-submit:hover{background:#d8ff74}.auth-message{min-height:20px;margin:12px 0 0;color:#ff927a;font-size:12px;line-height:1.5}.auth-privacy{margin:16px 0 0;font-size:11px}.auth-signout{border:0;background:transparent;color:var(--muted);font-size:12px;padding:8px 0}.auth-signout:hover{color:var(--ink)}
     @media(prefers-reduced-motion:reduce){.loading-mark,.loading-track span{animation:none!important}.loading-screen{transition:none}}
     @media(max-width:820px){.program-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.program-option{min-height:132px}}
     @media(max-width:560px){main{min-height:calc(100vh - 68px);align-items:flex-start;padding:34px 0 46px}.intro{margin-bottom:25px}.intro h1{font-size:36px;line-height:1.08}.intro p{font-size:13px;max-width:320px}.picker-heading{margin-bottom:13px;padding-bottom:13px}.picker-heading .section-title{font-size:17px}.program-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.program-option{min-height:116px;padding:13px;border-radius:15px}.program-name{font-size:16px}.program-meta{font-size:11px}.selection-footer{margin-top:15px;padding:16px}.routine{padding:19px 17px}.step{padding:13px 0}.auth-card{padding:27px 22px;border-radius:20px}.auth-card h1{font-size:31px;margin-top:29px}}
@@ -145,7 +144,7 @@
     .calendar-link svg{width:16px;height:16px}
     .picker-actions{display:flex;align-items:center;gap:8px}
     .calendar-page{width:100%;max-width:1000px;margin:auto}
-    .calendar-page h1{font:600 clamp(34px,5vw,52px)/1.05 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.06em;margin:6px 0 8px}
+    .calendar-page h1{font:600 clamp(34px,5vw,52px)/1.05 var(--apple-font);letter-spacing:-.06em;margin:6px 0 8px}
     .calendar-intro{color:var(--muted);font-size:14px;margin:0 0 24px}
     .calendar-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(240px,.8fr);gap:16px;align-items:start}
     .calendar-card,.calendar-detail{border:1px solid var(--line);border-radius:19px;background:var(--surface);padding:18px}
@@ -163,30 +162,30 @@
     .calendar-day.has-workout:after{content:'';position:absolute;bottom:5px;width:5px;height:5px;border-radius:50%;background:var(--orange)}
     .calendar-day.selected.has-workout:after{background:#19220f}
     .calendar-detail-kicker{color:#9caa9e;font-size:10px;font-weight:700;letter-spacing:.11em}
-    .calendar-detail h2{font:600 21px/1.2 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.035em;margin:9px 0 16px}
+    .calendar-detail h2{font:600 21px/1.2 var(--apple-font);letter-spacing:-.035em;margin:9px 0 16px}
     .calendar-workout-list{display:grid;gap:9px}
     .calendar-workout{padding:11px 12px;border:1px solid #303b32;border-radius:12px;background:#151d17;font-size:13px;font-weight:600}
     .calendar-workout-duration{margin-left:6px;color:var(--green);font-size:12px;font-weight:600;white-space:nowrap}
     .calendar-workout-duration.missing{color:var(--muted);font-size:10px;font-weight:500}
     .calendar-empty-note{color:var(--muted);font-size:12px;line-height:1.6;margin:0}
     .bmi-page{width:100%;max-width:760px;margin:auto}
-    .bmi-page h1{font:600 clamp(34px,5vw,52px)/1.05 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.06em;margin:6px 0 8px}
+    .bmi-page h1{font:600 clamp(34px,5vw,52px)/1.05 var(--apple-font);letter-spacing:-.06em;margin:6px 0 8px}
     .bmi-intro{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 24px}
     .bmi-card{border:1px solid var(--line);border-radius:19px;background:var(--surface);padding:22px}
     .bmi-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .bmi-field{display:grid;gap:8px}
     .bmi-field label{font-size:12px;font-weight:600;color:#c8d1c7}
-    .bmi-field input{width:100%;height:48px;padding:0 13px;border:1px solid #303a32;border-radius:11px;background:#0b100d;color:var(--ink);font:600 16px 'DM Sans',sans-serif;outline:none}
+    .bmi-field input{width:100%;height:48px;padding:0 13px;border:1px solid #303a32;border-radius:11px;background:#0b100d;color:var(--ink);font:600 16px var(--apple-font);outline:none}
     .bmi-field input:focus{border-color:#94bd35;box-shadow:0 0 0 3px #c9ff3d20}
     .bmi-submit{grid-column:1/-1;min-height:47px;border:0;border-radius:12px;background:var(--green);color:#12170e;font-size:14px;font-weight:700}
     .bmi-submit:hover{background:#d8ff74}
     .bmi-result{margin-top:18px;padding:18px;border:1px solid #3e5130;border-radius:15px;background:linear-gradient(135deg,#1a2416,#121814)}
     .bmi-result-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .bmi-result-label{color:#aab6aa;font-size:11px;font-weight:700;letter-spacing:.1em}
-    .bmi-result-value{color:var(--green);font:700 38px/1 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.06em}
+    .bmi-result-value{color:var(--green);font:700 38px/1 var(--apple-font);letter-spacing:-.06em}
     .bmi-result-category{margin-top:9px;font-size:15px;font-weight:700}
     .bmi-result-hint{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.6}
-    .bmi-section-title{margin:23px 0 11px;font:600 17px 'Space Grotesk','DM Sans',sans-serif}
+    .bmi-section-title{margin:23px 0 11px;font:600 17px var(--apple-font)}
     .bmi-ranges{display:grid;gap:7px}
     .bmi-range{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 13px;border:1px solid #303a32;border-radius:11px;background:#141b16;color:#c7d0c7;font-size:12px}
     .bmi-range strong{font-variant-numeric:tabular-nums;color:#aeb9ad;white-space:nowrap}
@@ -203,7 +202,7 @@
     .completion-dialog::backdrop{background:#050806d9;backdrop-filter:blur(7px)}
     .completion-mark{width:66px;height:66px;margin:0 auto 20px;border-radius:22px;display:grid;place-items:center;background:var(--green);color:#18200d;box-shadow:0 0 0 9px #c9ff3d18}
     .completion-mark svg{width:31px;height:31px}
-    .completion-dialog h2{margin:0;font:700 clamp(38px,9vw,54px)/1 'Space Grotesk','DM Sans',sans-serif;letter-spacing:-.065em;color:var(--green)}
+    .completion-dialog h2{margin:0;font:700 clamp(38px,9vw,54px)/1 var(--apple-font);letter-spacing:-.065em;color:var(--green)}
     .completion-dialog p{margin:12px 0 0;color:#aab6aa;font-size:14px}
     @media(max-width:820px){.calendar-layout{grid-template-columns:1fr}.calendar-detail{min-height:130px}}
     @media(max-width:560px){.picker-actions{gap:5px}.calendar-link{min-height:36px;padding:0 9px;font-size:11px}.calendar-link svg{width:14px;height:14px}.bmi-card{padding:16px}.bmi-form{gap:10px}.bmi-field input{padding:0 10px}.bmi-range{padding:10px}}
@@ -213,6 +212,8 @@
     .bottom-nav{position:fixed;z-index:50;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(440px,calc(100vw - 28px));min-height:76px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;padding:7px;border:1px solid #ffffff18;border-radius:26px;background:rgba(22,27,23,.76);-webkit-backdrop-filter:blur(28px) saturate(180%);backdrop-filter:blur(28px) saturate(180%);box-shadow:0 16px 46px #0009,inset 0 1px #ffffff0d}
     .bottom-nav-item{min-width:0;min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;border-radius:20px;background:transparent;color:#939f95;transition:background .2s,color .2s,transform .2s}.bottom-nav-item svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;fill:none}.bottom-nav-item span{font-size:10px;line-height:1;font-weight:600;letter-spacing:.01em}.bottom-nav-item:hover{color:#eaf2e9;background:#ffffff0a}.bottom-nav-item:active{transform:scale(.96)}.bottom-nav-item.is-active{background:rgba(201,255,61,.12);color:var(--green)}.bottom-nav-item:focus-visible{outline:2px solid var(--green);outline-offset:2px}
     @media(prefers-reduced-motion:reduce){.bottom-nav-item{transition:none}}
+    .bottom-nav{grid-template-columns:repeat(3,minmax(0,1fr))}.bottom-nav.has-workout{grid-template-columns:repeat(4,minmax(0,1fr))}.profile-page{max-width:980px;margin:0 auto}.profile-page h1{margin:10px 0 5px;font-size:clamp(28px,5vw,42px)}.profile-intro{color:var(--muted);margin:0 0 24px}.profile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.profile-card,.energy-card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#171b18,#101310);padding:22px}.profile-card h2,.energy-card h2{font-size:17px;margin:0 0 16px}.profile-form{display:grid;gap:12px}.profile-form label{display:grid;gap:6px;color:#b8c1b8;font-size:12px}.profile-form input{width:100%;min-height:43px;border-radius:12px;border:1px solid #ffffff1c;background:#0d100e;color:#f4f5f1;padding:0 12px}.profile-submit{border:0;border-radius:12px;background:var(--green);color:#10140d;font-weight:750;min-height:43px;padding:0 16px;cursor:pointer}.profile-message{min-height:18px;color:var(--green);font-size:12px;margin:0}.profile-security-note,.energy-note{color:var(--muted);font-size:11px;line-height:1.55}.energy-summary{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}.energy-summary strong{font-size:32px}.energy-summary span{color:var(--muted);font-size:12px}.workout-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.cancel-program-button{border:1px solid #ff695d66;background:#3b1d1a;color:#ff9287;border-radius:12px;padding:9px 13px;font-weight:700;cursor:pointer}.bmi-home-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #ffffff20;border-radius:12px;background:#151b17;color:#d9e3d9;min-height:42px;padding:0 13px;font-size:12px;font-weight:650;white-space:nowrap}.bmi-home-button svg{width:17px;height:17px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.bmi-home-button:hover{border-color:var(--green);color:var(--green)}
+    @media(max-width:700px){.profile-grid{grid-template-columns:1fr}.workout-controls{justify-content:flex-end}}
   </style>
 </head>
 <body>
@@ -235,7 +236,7 @@
           <div><h1 class="greeting"><span class="greeting-primary">Welcome back, <span id="welcomeName">there</span></span><span class="greeting-secondary">Let’s build your stronger self.</span></h1></div>
         </section>
         <section class="program-picker" aria-label="Choose a workout program">
-          <div class="picker-heading"><div><div class="section-title">Workout programs</div><div class="section-sub">Choose your training split</div></div></div>
+          <div class="picker-heading"><div><div class="section-title">Workout programs</div><div class="section-sub">Choose your training split</div></div><button class="bmi-home-button" id="openBMIHome" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M8.5 6.5h7m-7 4h1m5 0h1m-7 4h1m5 0h1m-7 4h1m5 0h1"/></svg><span>BMI calculator</span></button></div>
           <div class="program-grid" id="programGrid" role="group" aria-label="Workout programs"></div>
         </section>
         <section class="selection-footer"><div><span class="selection-caption">YOUR SELECTION</span><strong id="selectedProgramPreview">Upper body</strong><span class="selection-count" id="selectedCountPreview">10 exercises</span></div><button class="primary-button" id="beginWorkout">Start workout<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></section>
@@ -265,9 +266,19 @@
         </section>
       </section>
 
+      <section class="profile-page" id="profilePage" hidden aria-labelledby="profileTitle">
+        <button class="back-button" id="profileBack" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6M9 12h12"/></svg>Back to programs</button>
+        <h1 id="profileTitle">Your profile</h1><p class="profile-intro">Manage your account and review your training energy estimates.</p>
+        <div class="profile-grid">
+          <section class="profile-card"><h2>Account details</h2><form class="profile-form" id="profileForm"><label for="profileName">Name<input id="profileName" maxlength="50" autocomplete="name" required></label><label for="profileEmail">Email<input id="profileEmail" type="email" autocomplete="email" required></label><label for="profileWeight">Weight (kg)<input id="profileWeight" type="number" min="25" max="300" step="0.1" placeholder="For calorie estimates"></label><button class="profile-submit" type="submit">Save profile</button><p class="profile-message" id="profileMessage" role="status"></p></form></section>
+          <section class="profile-card"><h2>Change password</h2><form class="profile-form" id="passwordForm"><label for="currentPassword">Current password<input id="currentPassword" type="password" autocomplete="current-password" required></label><label for="newPassword">New password<input id="newPassword" type="password" minlength="8" autocomplete="new-password" required></label><button class="profile-submit" type="submit">Update password</button><p class="profile-message" id="passwordMessage" role="status"></p></form><p class="profile-security-note">This demo stores account credentials in this browser only. Changes do not sync to other devices.</p></section>
+          <section class="energy-card"><h2>Daily energy summary · last 7 days</h2><div class="energy-summary"><strong id="weeklyCalories">0</strong><span>estimated kcal this week</span></div><p class="energy-note">Estimated from your saved weight and completed workout duration. This is an approximate value.</p></section>
+        </div>
+      </section>
+
       <section class="workout-page" id="workoutPage" hidden>
         <button class="back-button" id="backToPrograms"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6M9 12h12"/></svg>Change program</button>
-        <section class="workout-heading"><div><h1 id="routineTitle">Upper body</h1><p id="workoutSubtitle">One exercise at a time</p></div><div class="workout-heading-stats"><div class="workout-count" id="exerciseCount">10 exercises</div><div class="workout-duration" id="workoutDuration" data-state="ready" aria-live="polite"><span class="workout-duration-label" id="workoutTimerLabel">READY</span><strong class="workout-duration-clock" id="workoutClock">00:00</strong></div></div></section>
+        <section class="workout-heading"><div><h1 id="routineTitle">Upper body</h1><p id="workoutSubtitle">One exercise at a time</p></div><div class="workout-controls"><div class="workout-heading-stats"><div class="workout-count" id="exerciseCount">10 exercises</div><div class="workout-duration" id="workoutDuration" data-state="ready" aria-live="polite"><span class="workout-duration-label" id="workoutTimerLabel">READY</span><strong class="workout-duration-clock" id="workoutClock">00:00</strong></div></div><button class="cancel-program-button" id="cancelProgramButton" type="button">Cancel program</button></div></section>
         <section class="timer timer-top" aria-label="Rest timer"><div class="timer-copy"><div class="timer-head">Rest timer <span>BETWEEN SETS</span></div><div class="timer-caption" id="timerCaption">Adjust in 5-second steps</div></div><div class="timer-main"><button class="timer-adjust" id="timerMinus" type="button" aria-label="Decrease timer by 5 seconds">−</button><div class="clock" id="clock" aria-live="polite">00:30</div><button class="timer-adjust" id="timerPlus" type="button" aria-label="Increase timer by 5 seconds">+</button><button class="timer-button" id="timerButton" aria-label="Start rest timer"><svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg><svg id="resetIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none" aria-hidden="true"><path d="M3 11a9 9 0 1 1 2.6 6.4"/><path d="M3 4v7h7"/></svg></button></div></section>
         <section class="routine" aria-label="Exercise checklist">
           <div class="section-head"><div><div class="section-title">Exercises</div><div class="section-sub">Finish the current exercise to unlock the next</div></div></div>
@@ -284,15 +295,16 @@
       <button class="bottom-nav-item" id="navCalendar" type="button" data-page="calendar">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="3"/><path d="M8 3v4m8-4v4M3.5 10h17"/><path d="m8 15 2.2 2.2 5-5"/></svg><span>Calendar</span>
       </button>
-      <button class="bottom-nav-item" id="navBMI" type="button" data-page="bmi">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M8.5 6.5h7m-7 4h1m5 0h1m-7 4h1m5 0h1m-7 4h1m5 0h1"/></svg><span>BMI</span>
-      </button>
+      <button class="bottom-nav-item" id="navExercises" type="button" data-page="workout" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v6m12-6v6M3.5 10.5v3m17-3v3M6 12h12M8 8v8m8-8v8"/></svg><span>Exercises</span></button>
+      <button class="bottom-nav-item" id="navProfile" type="button" data-page="profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg><span>Profile</span></button>
     </nav>
     <dialog class="order-dialog" id="orderDialog" aria-labelledby="orderDialogTitle">
       <div class="dialog-mark">↗</div><h2 id="orderDialogTitle">Play this exercise first?</h2>
       <p><strong id="pendingExerciseName"></strong> is not next in your order. Confirm to move it to the front, then continue through the remaining exercises.</p>
       <div class="dialog-actions"><button class="dialog-cancel" id="cancelReorder">Keep current order</button><button class="dialog-confirm" id="confirmReorder">Confirm and move it up</button></div>
     </dialog>
+    <dialog class="reset-dialog" id="cancelProgramDialog" aria-labelledby="cancelProgramTitle"><div class="dialog-mark" aria-hidden="true">↶</div><h2 id="cancelProgramTitle">Cancel this program?</h2><p>Your progress and timer for this program today will be cleared, and you can choose a different split.</p><div class="dialog-actions"><button class="dialog-cancel" id="keepProgram" type="button">Keep going</button><button class="dialog-confirm" id="confirmCancelProgram" type="button">Cancel program</button></div></dialog>
+    <dialog class="reset-dialog" id="activeProgramDialog" aria-labelledby="activeProgramTitle"><div class="dialog-mark" aria-hidden="true">↗</div><h2 id="activeProgramTitle">Workout in progress</h2><p id="activeProgramMessage">You are currently doing this program. Go back to the exercise page to continue.</p><div class="dialog-actions"><button class="dialog-cancel" id="dismissActiveProgram" type="button">Stay here</button><button class="dialog-confirm" id="goToActiveWorkout" type="button">Go to exercise page</button></div></dialog>
     <dialog class="completion-dialog" id="completionDialog" aria-labelledby="completionTitle"><div class="completion-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg></div><h2 id="completionTitle">Good Job!</h2><p>Workout complete.</p></dialog>
     <dialog class="reset-dialog" id="resetDialog" aria-labelledby="resetDialogTitle"><div class="dialog-mark" aria-hidden="true">↺</div><h2 id="resetDialogTitle">Reset all workout data?</h2><p>This clears workout progress, exercise order, timer records, and calendar history from this browser. Your account and sign-in will stay intact.</p><div class="dialog-actions"><button class="dialog-cancel" id="cancelReset" type="button">Cancel</button><button class="dialog-confirm" id="confirmReset" type="button">Reset data</button></div></dialog>
   </div>
@@ -311,6 +323,7 @@
     document.getElementById('dateLabel').textContent = new Intl.DateTimeFormat('en-US',{weekday:'long',day:'numeric',month:'long'}).format(today);
     window.setInterval(() => { if (getLocalDayKey(new Date()) !== dayKey) window.location.reload(); }, 15000);
     const selectedKey = `rise-move-program-v6-${dayKey}`;
+    const activeProgramKey = `best-move-active-program-v1-${dayKey}`;
     const getSaved = key => { try { return JSON.parse(localStorage.getItem(key) || 'null'); } catch { return null; } };
     const workoutHistoryKey = 'best-move-workout-history-v1';
     const accountsKey = 'best-move-local-accounts-v1';
@@ -342,7 +355,10 @@
       currentUser=user;
       welcomeName.textContent=user.name;
       profileButton.textContent=Array.from(user.name)[0].toLocaleUpperCase();
-      profileButton.setAttribute('aria-label',`Change display name, currently ${user.name}`);
+      profileButton.setAttribute('aria-label',`Open profile for ${user.name}`);
+      document.getElementById('profileName').value=user.name||'';
+      document.getElementById('profileEmail').value=user.email||'';
+      document.getElementById('profileWeight').value=user.weight||'';
       authPage.hidden=true;
       appShell.hidden=false;
     }
@@ -386,16 +402,29 @@
       }
     });
     document.getElementById('signOutButton').addEventListener('click',()=>{localStorage.removeItem(sessionKey);currentUser=null;appShell.hidden=true;authPage.hidden=false;document.getElementById('authForm').reset();setAuthMode('signin');});
-    profileButton.addEventListener('click', () => {
-      if(!currentUser)return;
-      const enteredName = window.prompt('What should Best Move call you?', currentUser.name);
-      if (enteredName === null) return;
-      const name = enteredName.trim();
-      if (!name) return;
-      const accounts=readAccounts();
-      const account=accounts.find(item=>item.email===currentUser.email);
-      if(!account)return;
-      account.name=name;localStorage.setItem(accountsKey,JSON.stringify(accounts));showApp(account);
+    profileButton.addEventListener('click',()=>navigateToPage('profile'));
+    document.getElementById('profileForm').addEventListener('submit',event=>{
+      event.preventDefault();if(!currentUser)return;
+      const name=document.getElementById('profileName').value.trim(),email=document.getElementById('profileEmail').value.trim().toLowerCase();
+      const weight=Number(document.getElementById('profileWeight').value)||null;
+      const accounts=readAccounts(),index=accounts.findIndex(item=>item.email===currentUser.email),collision=accounts.some(item=>item.email===email&&item.email!==currentUser.email);
+      const message=document.getElementById('profileMessage');
+      if(!name||!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))){message.textContent='Enter a valid name and email.';return;}
+      if(collision){message.textContent='That email already belongs to an account on this browser.';return;}
+      if(index<0)return;
+      const oldEmail=currentUser.email;accounts[index]={...accounts[index],name,email,weight};delete accounts[index].age;delete accounts[index].sex;localStorage.setItem(accountsKey,JSON.stringify(accounts));
+      if(oldEmail!==email)localStorage.setItem(sessionKey,JSON.stringify(email));
+      showApp(accounts[index]);message.textContent='Profile saved.';renderEnergySummary();
+    });
+    document.getElementById('passwordForm').addEventListener('submit',async event=>{
+      event.preventDefault();if(!currentUser)return;
+      const message=document.getElementById('passwordMessage'),current=document.getElementById('currentPassword').value,next=document.getElementById('newPassword').value;
+      const accounts=readAccounts(),index=accounts.findIndex(item=>item.email===currentUser.email);
+      if(index<0)return;
+      if(next.length<8){message.textContent='Use at least 8 characters.';return;}
+      if(await hashPassword(current,accounts[index].salt)!==accounts[index].passwordHash){message.textContent='Current password does not match.';return;}
+      const salt=randomSalt();accounts[index]={...accounts[index],salt,passwordHash:await hashPassword(next,salt)};
+      localStorage.setItem(accountsKey,JSON.stringify(accounts));showApp(accounts[index]);event.target.reset();message.textContent='Password updated.';
     });
     const savedEmail=getSaved(sessionKey);
     const savedUser=readAccounts().find(item=>item.email===savedEmail);
@@ -405,7 +434,7 @@
       loadingScreen.classList.add('is-leaving');
       window.setTimeout(() => { loadingScreen.hidden=true; }, 320);
     }, 1100);
-    let selectedId = getSaved(selectedKey) || 'upper';
+    let selectedId = getSaved(activeProgramKey) || getSaved(selectedKey) || 'upper';
     const programGrid = document.getElementById('programGrid');
     const stepsContainer = document.getElementById('steps');
     const selectedProgram = () => PROGRAMS.find(program => program.id === selectedId) || PROGRAMS[0];
@@ -497,6 +526,22 @@
     const orderDialog = document.getElementById('orderDialog');
     const workoutStartKey = programId => `best-move-workout-start-v1-${dayKey}-${programId}`;
     const workoutFinishKey = programId => `best-move-workout-finish-v1-${dayKey}-${programId}`;
+    const energyKey = (date,programId) => 'best-move-energy-v1-'+date+'-'+programId;
+    function saveWorkoutEnergy(programId) {
+      const profile=currentUser||{},start=getSaved(workoutStartKey(programId)),finish=getSaved(workoutFinishKey(programId));
+      const minutes=Math.max(0,(typeof start==='number'&&typeof finish==='number'?(finish-start)/60000:0));
+      const weight=Number(profile.weight),kcal=weight>0?6*3.5*weight/200*minutes:0;
+      const record={date:dayKey,programId,minutes:Number(minutes.toFixed(1)),kcal:Math.round(kcal)};
+      localStorage.setItem(energyKey(dayKey,programId),JSON.stringify(record));
+      const output=document.getElementById('workoutEnergyResult');
+      if(output)output.textContent=weight>0?('About '+record.kcal+' kcal estimated'):'Add your weight in Profile to calculate an estimate.';
+      renderEnergySummary();
+    }
+    function renderEnergySummary() {
+      const days=Array.from({length:7},(_,index)=>{const date=new Date();date.setHours(12,0,0,0);date.setDate(date.getDate()-(6-index));return getLocalDayKey(date);});
+      const totals=days.map(date=>{let sum=0;for(const program of PROGRAMS){const saved=getSaved(energyKey(date,program.id));if(saved&&Number.isFinite(saved.kcal))sum+=saved.kcal;}return sum;});
+      document.getElementById('weeklyCalories').textContent=totals.reduce((sum,value)=>sum+value,0).toLocaleString();
+    }
     let workoutTimerInterval=null;
     let timerProgramId=null;
     const exerciseStartKey = (programId,index) => `best-move-exercise-start-v1-${dayKey}-${programId}-${index}`;
@@ -538,12 +583,17 @@
     function startWorkoutClock() {
       if(workoutTimerInterval){clearInterval(workoutTimerInterval);workoutTimerInterval=null;}
       timerProgramId=selectedId;
+      localStorage.setItem(activeProgramKey,JSON.stringify(selectedId));
       const startKey=workoutStartKey(timerProgramId),finishKey=workoutFinishKey(timerProgramId);
       let startedAt=getSaved(startKey),finishedAt=getSaved(finishKey);
       if(typeof startedAt!=='number'){startedAt=Date.now();localStorage.setItem(startKey,JSON.stringify(startedAt));}
       const activeExercise=order.find(index=>!checked.includes(index));
       if(activeExercise!==undefined)ensureExerciseStarted(activeExercise);
-      if(checked.length===selectedProgram().exercises.length&&typeof finishedAt!=='number'){finishedAt=Date.now();localStorage.setItem(finishKey,JSON.stringify(finishedAt));}
+      if(checked.length===selectedProgram().exercises.length){
+        if(typeof finishedAt!=='number'){finishedAt=Date.now();localStorage.setItem(finishKey,JSON.stringify(finishedAt));}
+        localStorage.removeItem(activeProgramKey);
+      }
+      syncWorkoutNav();
       if(typeof finishedAt!=='number')workoutTimerInterval=setInterval(renderWorkoutClock,1000);
       renderWorkoutClock();
     }
@@ -553,8 +603,11 @@
       if(typeof getSaved(startKey)!=='number')localStorage.setItem(startKey,JSON.stringify(Date.now()));
       if(typeof getSaved(finishKey)!=='number')localStorage.setItem(finishKey,JSON.stringify(Date.now()));
       if(workoutTimerInterval){clearInterval(workoutTimerInterval);workoutTimerInterval=null;}
+      localStorage.removeItem(activeProgramKey);
+      syncWorkoutNav();
       timerProgramId=programId;
       renderWorkoutClock();
+      saveWorkoutEnergy(programId);
     }
 
     function renderPrograms() {
@@ -565,6 +618,12 @@
         return `<button class="program-option" type="button" data-program="${program.id}" aria-pressed="${program.id === selectedId}"><span class="program-art program-art-${program.id}" aria-hidden="true">${illustration}</span><span class="program-card-top"><span class="program-index">0${index + 1}</span></span><span><span class="program-name">${program.title}</span><span class="program-meta">${program.exercises.length} exercises</span></span></button>`;
       }).join('');
       programGrid.querySelectorAll('.program-option').forEach(button => button.addEventListener('click', () => {
+        const activeProgramId=getSaved(activeProgramKey);
+        if(activeProgramId&&activeProgramId!==button.dataset.program){
+          document.getElementById('activeProgramMessage').textContent=`You are currently doing ${PROGRAMS.find(item=>item.id===activeProgramId)?.title||'this program'}. Go back to the exercise page to continue.`;
+          document.getElementById('activeProgramDialog').showModal();
+          return;
+        }
         selectedId = button.dataset.program;
         localStorage.setItem(selectedKey, JSON.stringify(selectedId));
         checked = readDone();
@@ -577,6 +636,7 @@
       const program = selectedProgram();
       checked = checked.filter(index => index >= 0 && index < program.exercises.length);
       document.getElementById('routineTitle').textContent = program.title;
+      document.getElementById('cancelProgramButton').hidden=getSaved(activeProgramKey)!==program.id;
       document.getElementById('exerciseCount').textContent = `${program.exercises.length} exercises`;
       document.getElementById('selectedProgramPreview').textContent = program.title;
       document.getElementById('selectedCountPreview').textContent = `${program.exercises.length} exercises`;
@@ -616,6 +676,7 @@
       localStorage.setItem(doneKey(),JSON.stringify(checked));
       renderExerciseGate();
       renderPrograms();
+      syncWorkoutNav();
     }
     const completionDialog=document.getElementById('completionDialog');
     let completionTimeout=null;
@@ -624,13 +685,22 @@
       completionDialog.showModal();
       completionTimeout=setTimeout(()=>{if(completionDialog.open)completionDialog.close();completionTimeout=null;},3000);
     }
-    const pageElements={programs:document.getElementById('programPage'),calendar:document.getElementById('calendarPage'),bmi:document.getElementById('bmiPage'),workout:document.getElementById('workoutPage')};
+    const pageElements={programs:document.getElementById('programPage'),calendar:document.getElementById('calendarPage'),bmi:document.getElementById('bmiPage'),profile:document.getElementById('profilePage'),workout:document.getElementById('workoutPage')};
     const bottomNavItems=Array.from(document.querySelectorAll('.bottom-nav-item'));
+    const bottomNav=document.querySelector('.bottom-nav');
+    const navExercises=document.getElementById('navExercises');
+    function syncWorkoutNav() {
+      const visible=Boolean(getSaved(activeProgramKey));
+      navExercises.hidden=!visible;
+      bottomNav.classList.toggle('has-workout',visible);
+    }
     function navigateToPage(page) {
       pageElements.programs.hidden=page!=='programs';
       pageElements.calendar.hidden=page!=='calendar';
       pageElements.bmi.hidden=page!=='bmi';
-      pageElements.workout.hidden=true;
+      pageElements.profile.hidden=page!=='profile';
+      pageElements.workout.hidden=page!=='workout';
+      syncWorkoutNav();
       bottomNavItems.forEach(item=>{
         const active=item.dataset.page===page;
         item.classList.toggle('is-active',active);
@@ -641,12 +711,27 @@
         selectedCalendarDay=dayKey;
         renderCalendar();
       }
+      if(page==='profile')renderEnergySummary();
       window.scrollTo({top:0,behavior:'smooth'});
     }
     bottomNavItems.forEach(item=>item.addEventListener('click',()=>navigateToPage(item.dataset.page)));
+    const activeProgramDialog=document.getElementById('activeProgramDialog');
+    document.getElementById('dismissActiveProgram').addEventListener('click',()=>activeProgramDialog.close());
+    document.getElementById('goToActiveWorkout').addEventListener('click',()=>{
+      activeProgramDialog.close();
+      const activeProgramId=getSaved(activeProgramKey);
+      if(!activeProgramId)return;
+      selectedId=activeProgramId;
+      localStorage.setItem(selectedKey,JSON.stringify(selectedId));
+      checked=readDone();order=readOrder();render();
+      navigateToPage('workout');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
     document.getElementById('bmiBack').addEventListener('click',()=>{
       navigateToPage('programs');
     });
+    document.getElementById('openBMIHome').addEventListener('click',()=>navigateToPage('bmi'));
+    document.getElementById('profileBack').addEventListener('click',()=>navigateToPage('programs'));
     document.getElementById('bmiForm').addEventListener('submit',event=>{
       event.preventDefault();
       const weight=Number(document.getElementById('bmiWeight').value);
@@ -668,9 +753,26 @@
     document.getElementById('nextMonth').addEventListener('click',()=>{calendarCursor=new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()+1,1);selectedCalendarDay=getLocalDayKey(calendarCursor);renderCalendar();});
     document.getElementById('beginWorkout').addEventListener('click',() => {
       startWorkoutClock();
-      document.getElementById('programPage').hidden = true;
-      document.getElementById('workoutPage').hidden = false;
-      window.scrollTo({top:0,behavior:'smooth'});
+      renderPrograms();
+      document.getElementById('cancelProgramButton').hidden=false;
+      navigateToPage('workout');
+    });
+    const cancelProgramDialog=document.getElementById('cancelProgramDialog');
+    document.getElementById('cancelProgramButton').addEventListener('click',()=>cancelProgramDialog.showModal());
+    document.getElementById('keepProgram').addEventListener('click',()=>cancelProgramDialog.close());
+    document.getElementById('confirmCancelProgram').addEventListener('click',()=>{
+      cancelProgramDialog.close();
+      const programId=getSaved(activeProgramKey)||selectedId;
+      if(workoutTimerInterval){clearInterval(workoutTimerInterval);workoutTimerInterval=null;}
+      pauseTimer();
+      localStorage.removeItem(activeProgramKey);
+      [`rise-move-done-v5-${dayKey}-${programId}`,`rise-move-order-v2-${dayKey}-${programId}`,workoutStartKey(programId),workoutFinishKey(programId),energyKey(dayKey,programId)].forEach(key=>localStorage.removeItem(key));
+      for(let index=0;index<selectedProgram().exercises.length;index++)localStorage.removeItem(exerciseStartKey(programId,index));
+      const history=getWorkoutHistory().filter(item=>!(item.date===dayKey&&item.programId===programId));
+      localStorage.setItem(workoutHistoryKey,JSON.stringify(history));
+      checked=[];order=Array.from({length:selectedProgram().exercises.length},(_,index)=>index);
+      timerProgramId=null;renderWorkoutClock();render();renderPrograms();renderCalendar();
+      navigateToPage('programs');
     });
     document.getElementById('backToPrograms').addEventListener('click',() => {
       navigateToPage('programs');
@@ -711,7 +813,7 @@
     document.getElementById('cancelReset').addEventListener('click',()=>resetDialog.close());
     document.getElementById('confirmReset').addEventListener('click',()=>{
       resetDialog.close();
-      const resetPrefixes=['rise-move-program-v6-','rise-move-done-v5-','rise-move-order-v2-','best-move-workout-start-v1-','best-move-workout-finish-v1-','best-move-exercise-start-v1-'];
+      const resetPrefixes=['rise-move-program-v6-','rise-move-done-v5-','rise-move-order-v2-','best-move-workout-start-v1-','best-move-workout-finish-v1-','best-move-exercise-start-v1-','best-move-active-program-v1-','best-move-energy-v1-'];
       for(let index=localStorage.length-1;index>=0;index--){const key=localStorage.key(index);if(resetPrefixes.some(prefix=>key.startsWith(prefix)))localStorage.removeItem(key);}
       localStorage.removeItem(workoutHistoryKey);
       selectedId='upper';
